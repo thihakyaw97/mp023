@@ -26,5 +26,7 @@ module.exports.bootstrap = async function() {
   //   // etc.
   // ]);
   // ```
+  sails.bcrypt = require('bcrypt');
+  sails.saltRounds = 10;
 
 };

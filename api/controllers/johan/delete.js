@@ -8,19 +8,27 @@ module.exports = {
 
 
   inputs: {
-
+    id: {
+      type: 'string',
+      required: true,
+    },
   },
 
 
   exits: {
-
+    success:{
+      description:"Successfully deleted."
+    }
   },
 
 
-  fn: async function (inputs) {
+  fn: async function (inputs,exits) {
 
+    let id = inputs.id;
+    await Johan.destroy({_id:id});
     // All done.
-    return;
+    return exits.success();
+
 
   }
 

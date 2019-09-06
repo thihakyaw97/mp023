@@ -13,14 +13,17 @@ module.exports = {
 
 
   exits: {
-
+    success:{
+      description:"Successfully deleted."
+    }
   },
 
 
   fn: async function (inputs) {
 
-    // All done.
-    return;
+    var johan = await Johan.find();
+
+    return this.res.json(johan);
 
   }
 

@@ -24,7 +24,10 @@ module.exports.routes = {
   'PUT /api/v1/script/update/:id': { action: 'script/update' },
   'DELETE /api/v1/script/delete/:id': { action: 'script/delete' },
   
-
+  'GET /api/v1/johan/get': { action: 'johan/get' },
+  'POST /api/v1/johan/create': { action: 'johan/create' },
+  'PUT /api/v1/johan/update/:id': { action: 'johan/update' },
+  'DELETE /api/v1/johan/delete/:id': { action: 'johan/delete' },
 
   /***************************************************************************
   *                                                                          *

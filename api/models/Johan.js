@@ -11,6 +11,7 @@ module.exports = {
     text: {
       type: 'json',
       columnType:'array',
+      required: true,
       example: 'the numbers. i am seeing but i am blind. i am hearing but i am deaf. the signals are coming.',
       description: 'Johan text output'
     },
@@ -22,8 +23,7 @@ module.exports = {
     },
 
     audio: {
-      type: 'json',
-      columnType:'array',
+      type: 'string',
       example: 'help_me.wav',
       description: 'The response of johan in audio'
     },
@@ -36,13 +36,11 @@ module.exports = {
 
     textDuration: {
       type: 'number',
-      required: true,
       description: 'Duration of each text.'
     },
 
     textSpeed: {
       type: 'number',
-      required: true,
       description: 'The speed of displaying johan text.'
     },
 
@@ -84,6 +82,26 @@ module.exports = {
     },
 
     responseTextFlash: {
+      type: 'boolean',
+      description: 'determine response message is flashing message or not',
+    },
+
+    asciiText: {
+      type: 'string',
+      description: 'Johan sometimes want to show what he see in ascii.',
+    },
+
+    asciiTextDuration: {
+      type: 'number',
+      description: 'Duration of between each ascii texts.',
+    },
+
+    asciiTextSpeed: {
+      type: 'number',
+      description: 'Speed response texts.',
+    },
+
+    asciiTextFlash: {
       type: 'boolean',
       description: 'determine response message is flashing message or not',
     },
