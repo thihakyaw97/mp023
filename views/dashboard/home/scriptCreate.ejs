@@ -1,0 +1,167 @@
+<ul class="collapsible">
+  <li>
+    <div class="collapsible-header grey darken-3 white-text"><i class="material-icons">laptop_mac</i>Add Script To
+      Response Johan</div>
+    <div class="collapsible-body white-text">
+      <div class="row">
+        <!--Script TEXT-->
+        <!--Script TEXT-->
+        <!--Script TEXT-->
+        <div class="input-field col s12">
+          <input placeholder="The name of the script to control program or communicate Johan..." id="scriptText"
+            type="text" name="scriptText[]" class="validate scriptText">
+          <label for="scriptText">Shell script name
+          </label>
+        </div>
+
+        <!--Script TEXT-->
+        <!--Script TEXT-->
+        <!--Script TEXT-->
+
+        <!--Script Audio-->
+        <!--Script Audio-->
+        <!--Script Audio-->
+        <div class="file-field input-field col s12">
+          <div class="btn white black-text btn-small waves-effect waves-light">
+            <span>File</span>
+            <input type="file" class="scriptAudio" id="scriptAudio" name="scriptAudio">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="boop beep booou">
+          </div>
+        </div>
+
+        <div class="input-field col s12 right-align">
+          <a class="btn-floating btn-large waves-effect waves-light red btn-small"><i
+              class="material-icons">cancel</i></a>
+        </div>
+        <!--Script Audio-->
+        <!--Script Audio-->
+        <!--Script Audio-->
+
+        <!--Script Description-->
+        <!--Script Description-->
+        <!--Script Description-->
+        <div class="input-field col s12">
+          <input placeholder="The description of the shell script" id="scriptDescription" type="text"
+            name="scriptDescription[]" class="validate scriptDescription">
+          <label for="scriptDescription">Shell script description</label>
+        </div>
+        <!--Script Description-->
+        <!--Script Description-->
+        <!--Script Description-->
+
+        <!--Response TEXT-->
+        <!--Response TEXT-->
+        <!--Response TEXT-->
+        <div class="input-field col s12">
+          <input placeholder="The shell script response..." id="scriptResponseText" type="text"
+            name="scriptResponseText[]" class="validate scriptResponseText">
+          <label for="scriptResponseText">What did the shell script response say?</label>
+        </div>
+
+        <div id="scriptResponseTextNewInputs">
+
+          </div>
+        <div class="input-field col s12 right-align">
+          <small>The response has more than one line?</small>
+          <a class="btn-floating btn-large waves-effect waves-light blue btn-small"><i
+              class="material-icons" id="scriptResponseTextAdd">add</i></a>
+        </div>
+        <!--Response TEXT-->
+        <!--Response TEXT-->
+        <!--Response TEXT-->
+
+
+
+        <!--Response TEXT if fail-->
+        <!--Response TEXT if fail-->
+        <!--Response TEXT if fail-->
+        <div class="input-field col s12">
+          <input placeholder="If something goes wrong, what will be the response..." id="scriptResponseTextIfFail"
+            type="text" name="scriptResponseTextIfFail[]" class="validate scriptResponseText">
+          <label for="scriptResponseTextIfFail">What did the shell script response say if fail?</label>
+        </div>
+
+        <div id="scriptResponseTextIfFailNewInputs">
+
+          </div>
+        <div class="input-field col s12 right-align">
+          <small>The response fail text has more than one line?</small>
+          <a class="btn-floating btn-large waves-effect waves-light blue btn-small"><i
+              class="material-icons" id="scriptResponseTextIfFailAdd">add</i></a>
+        </div>
+        <!--Response TEXT if fail-->
+        <!--Response TEXT if fail-->
+        <!--Response TEXT if fail-->
+
+        <!--Response  TEXT Animation-->
+        <!--Response TEXT Animation-->
+        <!--Response  TEXT Animation-->
+        <div class="input-field col s12">
+          <input placeholder="number in ms^1 " id="scriptResponseTextDuration" type="number"
+            name="scriptResponseTextDuration" class="validate scriptResponseTextDuration">
+          <label for="scriptResponseTextDuration">The duration between each script response.</label>
+        </div>
+
+        <div class="input-field col s12">
+          <input placeholder="number in ms^1 " id="scriptResponseTextSpeed" type="number" name="scriptResponseTextSpeed"
+            class="validate scriptResponseTextSpeed">
+          <label for="scriptResponseTextSpeed">How fast the response text for script is saying?</label>
+        </div>
+
+        <div class="col s12 right-align">
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in scriptResponseTextFlash" id="scriptResponseTextFlash"
+                name="scriptResponseTextFlash" value="true" />
+              <span class="white-text"><small>The response text is flashing?</small></span>
+            </label>
+          </p>
+        </div>
+        <!--Response  TEXT Animation-->
+        <!--Response  TEXT Animation-->
+        <!--Response  TEXT Animation-->
+
+        <!--Special Action-->
+        <!--Special Action-->
+        <!--Special Action-->
+        <div class="input-field col s12">
+          <input placeholder="the special action. Quit Exit etc..." id="scriptSpecialAction" type="text"
+            name="scriptSpecialAction" class="validate scriptSpecialAction">
+          <label for="scriptSpecialAction">Special Action</label>
+        </div>
+        <!--Special Action-->
+        <!--Special Action-->
+        <!--Special Action-->
+
+        <!--Sorting-->
+        <!--Sorting-->
+        <!--Sorting-->
+        <div class="input-field col s12">
+          <select name="scriptSorting" class="scriptSorting" id="scriptSorting">
+            <optgroup label="Insert Formally">
+              <option value="1">Insert to the latest</option>
+              <option value="2">Insert to the beginning</option>
+            </optgroup>
+            <optgroup label="Intersection">
+              <option value="3">Insert after #1</option>
+              <option value="4">Insert after #2</option>
+            </optgroup>
+          </select>
+          <label>Sorting</label>
+        </div>
+        <!--Sorting-->
+        <!--Sorting-->
+        <!--Sorting-->
+
+        <div class="col s12 right-align">
+          <button class="btn waves-effect waves-light btn-flat grey darken-2 scriptAdd" id="scriptAdd" type="submit"
+            name="scriptAdd">Add
+            <i class="material-icons right">add</i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>

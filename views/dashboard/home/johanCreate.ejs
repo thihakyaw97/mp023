@@ -1,0 +1,310 @@
+<ul class="collapsible">
+  <li>
+    <div class="collapsible-header grey darken-3 white-text"><i class="material-icons">comment</i>What Johan Said</div>
+    <div class="collapsible-body white-text">
+      <div class="row">
+        <h5 style="font-size:18px;padding-bottom:20px;">//Johan says something, audio and his text animations</h5>
+        <!--JOHAN TEXT-->
+        <!--JOHAN TEXT-->
+        <!--JOHAN TEXT-->
+        <div class="input-field col s12" id="johanTextParent">
+          <input placeholder="Johan is trying to say something..." id="johanText" type="text" name="johanText[]"
+            class="validate johanText">
+          <label for="johanText">What did Johan say?
+          </label>
+        </div>
+
+        <div id="johanTextNewInputs">
+
+        </div>
+
+        <div class="input-field col s12 right-align">
+          <small>Did he say more?</small>
+          <button class="btn-floating btn-large waves-effect waves-light blue btn-small" id="johanTextAdd"><i
+              class="material-icons">add</i></button>
+        </div>
+        <!--JOHAN TEXT-->
+        <!--JOHAN TEXT-->
+        <!--JOHAN TEXT-->
+
+        <!--JOHAN Audio-->
+        <!--JOHAN Audio-->
+        <!--JOHAN Audio-->
+        <div class="file-field input-field col s12">
+          <div class="btn white black-text">
+            <span>File</span>
+            <input type="file" class="johanAudio" id="johanAudio" name="johanAudio">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Johan is saying in his voice?">
+          </div>
+        </div>
+
+
+        <div class="input-field col s12 right-align">
+          <a class="btn-floating btn-large waves-effect waves-light red btn-small"><i
+              class="material-icons">cancel</i></a>
+        </div>
+        <div class="col s12 right-align">
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in johanAudioTiming" id="johanAudioTiming" name="johanAudioTiming"
+                value="true" />
+              <span class="white-text"><small>he says that while saying in text</small></span>
+            </label>
+          </p>
+        </div>
+
+        <!--JOHAN Audio-->
+        <!--JOHAN Audio-->
+        <!--JOHAN Audio-->
+
+        <!--JOHAN TEXT Animation-->
+        <!--JOHAN TEXT Animation-->
+        <!--JOHAN TEXT Animation-->
+        <div class="input-field col s12 l6">
+          <input placeholder="number in ms^1 " id="johanTextDuration" type="number" name="johanTextDuration"
+            class="validate johanTextDuration">
+          <label for="johanTextDuration">The duration between each text Johan trying to say.</label>
+        </div>
+
+        <div class="input-field col s12 l6">
+          <input placeholder="number in ms^1 " id="johanTextSpeed" type="number" name="johanTextSpeed"
+            class="validate johanTextSpeed">
+          <label for="johanTextSpeed">How fast Johan is saying?</label>
+        </div>
+
+        <div class="col s12 right-align">
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in johanTextFlash" id="johanTextFlash" name="johanTextFlash"
+                value="true" />
+              <span class="white-text"><small>The text is flashing?</small></span>
+            </label>
+          </p>
+        </div>
+        <!--JOHAN TEXT Animation-->
+        <!--JOHAN TEXT Animation-->
+        <!--JOHAN TEXT Animation-->
+
+        <!--Player Response-->
+        <!--Player Response-->
+        <!--Player Response-->
+
+        <h5 style="font-size:18px;padding-bottom:20px;">//Johan sometimes need player's response. Customize responses
+          and response animations.</h5>
+        <div class="input-field col s12 l6">
+          <select name="johanNeedResponse" class="johanNeedResponse" id="johanNeedResponse">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label>Johan needs player's response?</label>
+        </div>
+
+        <div class="input-field col s12 l6">
+          <select name="johanResponse" class="johanResponse" id="johanResponse">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label>If Johan needs player's response, what would it be?</label>
+        </div>
+        <!--Customize Response Text-->
+        <!--Customize Response Text-->
+        <!--Customize Response Text-->
+        <div class="col s12 right-align">
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in johanCustomizeResponseText" id="johanCustomizeResponseText"
+                name="johanCustomizeResponseText" value="true" />
+              <span class="white-text"><small>Customize response text?</small></span>
+            </label>
+          </p>
+        </div>
+
+        <div class="input-field col s12">
+          <input placeholder="Johan is trying to say something..." id="johanResponseText" type="text"
+            name="johanResponseText[]" class="validate johanResponseText">
+          <label for="johanResponseText">What did
+            the shell script response (Customize Text)</label>
+        </div>
+
+        <div id="johanResponseTextNewInputs">
+
+        </div>
+
+        <div class="input-field col s12 right-align">
+          <small>The customize response text has more than one line?</small>
+          <a class="btn-floating btn-large waves-effect waves-light blue btn-small"><i class="material-icons"
+              id="johanResponseTextAdd">add</i></a>
+        </div>
+        <!--Customize Response Text-->
+        <!--Customize Response Text-->
+        <!--Customize Response Text-->
+        <div class="input-field col s12">
+          <input placeholder="You type the wrong script and the mp program said..." id="johanResponseTextIfFail"
+            type="text" name="johanResponseTextIfFail[]" class="validate johanResponseTextIfFail">
+          <label for="johanResponseTextIfFail">What did mp program response when you type wrong script?</label>
+        </div>
+
+        <div id="johanResponseTextIfFailNewInputs">
+
+        </div>
+
+        <div class="input-field col s12 right-align">
+          <small>Did the mp program response more?</small>
+          <button class="btn-floating btn-large waves-effect waves-light blue btn-small"><i class="material-icons"
+              id="johanResponseTextIfFailAdd">add</i></button>
+        </div>
+
+        <div class="input-field col s12">
+          <input placeholder="You quit and open the mp program again. mp program said..."
+            id="johanResponseTextIfYouQuit" type="text" name="johanResponseTextIfYouQuit[]"
+            class="validate johanResponseTextIfYouQuit">
+          <label for="johanResponseTextIfYouQuit">What did mp program response after you turn on the mp program
+            again?</label>
+        </div>
+
+        <div id="johanResponseTextIfYouQuitNewInputs">
+
+        </div>
+
+        <div class="input-field col s12 right-align">
+          <small>Did the mp program response more for quitting?</small>
+          <button class="btn-floating btn-large waves-effect waves-light blue btn-small"
+            id="johanResponseTextIfYouQuitAdd"><i class="material-icons">add</i></button>
+        </div>
+        <!--Player Response-->
+        <!--Player Response-->
+        <!--Player Response-->
+
+
+        <!--Response  TEXT Animation-->
+        <!--Response TEXT Animation-->
+        <!--Response  TEXT Animation-->
+        <div class="input-field col s12 l6">
+          <input placeholder="number in ms^1 " id="johanResponseTextDuration" type="number"
+            name="johanResponseTextDuration" class="validate johanResponseTextDuration">
+          <label for="johanResponseTextDuration">The duration between each text mp program trying to response.</label>
+        </div>
+
+        <div class="input-field col s12 l6">
+          <input placeholder="number in ms^1 " id="johanResponseTextSpeed" type="number" name="johanResponseTextSpeed"
+            class="validate johanResponseTextSpeed">
+          <label for="johanResponseTextSpeed">How fast the mp program is saying?</label>
+        </div>
+
+        <div class="col s12 right-align">
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in johanResponseTextFlash" id="johanResponseTextFlash"
+                name="johanResponseTextFlash" value="true" />
+              <span class="white-text"><small>The response text is flashing?</small></span>
+            </label>
+          </p>
+        </div>
+        <!--Response  TEXT Animation-->
+        <!--Response  TEXT Animation-->
+        <!--Response  TEXT Animation-->
+
+        <h5 style="font-size:18px;padding-bottom:20px;">//Johan demostrate himself in ASCII text images and animation.
+          This is new feature of mp.</h5>
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <div class="input-field col s12">
+          <textarea placeholder="If Johan is trying to show something in photo format." id="johanAsciiText"
+            class="materialize-textarea johanAsciiText" name="johanAsciiText"></textarea>
+          <label for="johanAsciiText">Johan's trying to show photo in ASCII</label>
+        </div>
+
+        <div id="johanAsciiTextNewInputs">
+
+        </div>
+        <div class="input-field col s12 right-align">
+          <small>More than one image?</small>
+          <button class="btn-floating btn-large waves-effect waves-light blue btn-small"><i class="material-icons"
+              id="johanAsciiTextAdd">add</i></button>
+        </div>
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <!--ASCII text-->
+
+        <!--ASCII text animation-->
+        <!--ASCII text animation-->
+        <!--ASCII text animation-->
+        <div class="input-field col s12 l6">
+          <input placeholder="number in ms^1 " id="johanAsciiTextDuration" type="number" name="johanAsciiTextDuration"
+            class="validate johanAsciiTextDuration">
+          <label for="johanAsciiTextDuration">The duration between each ASCII trying to response.</label>
+        </div>
+
+        <div class="input-field col s12 l6">
+          <input placeholder="number in ms^1 " id="johanAsciiTextSpeed" type="number" name="johanAsciiTextSpeed"
+            class="validate johanAsciiTextSpeed">
+          <label for="johanAsciiTextSpeed">How fast the ASCII moving?</label>
+        </div>
+
+        <div class="col s12 right-align">
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in johanAsciiTextFlash" id="johanAsciiTextFlash"
+                name="johanAsciiTextFlash" value="true" />
+              <span class="white-text"><small>The ASCII is flashing?</small></span>
+            </label>
+          </p>
+        </div>
+        <!--ASCII text animation-->
+        <!--ASCII text animation-->
+        <!--ASCII text animation-->
+
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <div class="input-field col s12">
+          <textarea placeholder="If Johan is trying to show something in ASCII animation." id="johanAsciiAnimation"
+            class="materialize-textarea johanAsciiAnimation" name="johanAsciiAnimation"></textarea>
+          <label for="johanAsciiAnimation">Johan's trying to show photo in ASCII animation</label>
+        </div>
+
+        <div id="johanAsciiAnimationNewInputs">
+
+        </div>
+
+        <div class="input-field col s12 right-align">
+          <small>Add new frame...</small>
+          <a class="btn-floating btn-large waves-effect waves-light blue btn-small" id="johanAsciiAnimationAdd"><i
+              class="material-icons">add</i></a>
+        </div>
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <!--ASCII text-->
+
+        <!--Sorting-->
+        <!--Sorting-->
+        <!--Sorting-->
+        <div class="input-field col s12">
+          <select name="johanSorting" class="johanSorting" id="johanSorting">
+            <optgroup label="Insert Formally">
+              <option value="1">Insert to the latest</option>
+              <option value="2">Insert to the beginning</option>
+            </optgroup>
+            <optgroup label="Intersection">
+              <option value="3">Insert after #1</option>
+              <option value="4">Insert after #2</option>
+            </optgroup>
+          </select>
+          <label>Sorting</label>
+        </div>
+        <!--Sorting-->
+        <!--Sorting-->
+        <!--Sorting-->
+
+        <div class="col s12 right-align">
+          <button class="btn waves-effect waves-light btn-flat grey darken-2 johanAdd" id="johanAdd" type="submit"
+            name="johanAdd">Add
+            <i class="material-icons right">add</i>
+          </button>
+        </div>
+      </div>
+  </li>
+</ul>

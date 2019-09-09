@@ -20,6 +20,12 @@ module.exports = {
       description: 'Sorting the script to show in notepad. rather than managing database asc and dsc, I prefer customizable sorting the scripts.'
     },
 
+    audio: {
+      type: 'string',
+      example: 'help_me.wav',
+      description: 'The response beep boop from the program'
+    },
+
     description: {
       type: 'string',
       required: true,
@@ -34,7 +40,8 @@ module.exports = {
     },
 
     responseTextIfFail: {
-      type: 'string',
+      type: 'json',
+      columnType:'array',
       required: true,
       description: 'The response if the script executed succefully fail.'
     },

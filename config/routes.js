@@ -19,6 +19,8 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+  'GET /dashboard':'IndexController.homeView',
+
   'GET /api/v1/script/get': { action: 'script/get' },
   'POST /api/v1/script/create': { action: 'script/create' },
   'PUT /api/v1/script/update/:id': { action: 'script/update' },

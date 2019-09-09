@@ -59,6 +59,18 @@ module.exports = {
       model: 'script'
     },
 
+    customizeResponseText:{
+      type: 'boolean',
+      description: 'Customizing response text'
+    },
+
+    responseText: {
+      type: 'json',
+      columnType:'array',
+      required: true,
+      description: 'The custom response if the script executed succefully.'
+    },
+
     responseTextIfFail: {
       type: 'json',
       columnType:'array',
@@ -87,7 +99,8 @@ module.exports = {
     },
 
     asciiText: {
-      type: 'string',
+      type: 'json',
+      columnType:'array',
       description: 'Johan sometimes want to show what he see in ascii.',
     },
 
@@ -99,6 +112,12 @@ module.exports = {
     asciiTextSpeed: {
       type: 'number',
       description: 'Speed response texts.',
+    },
+
+    asciiAnimation: {
+      type: 'json',
+      columnType:'array',
+      description: 'Johan sometimes want to show what he see in ascii animation.',
     },
 
     asciiTextFlash: {
