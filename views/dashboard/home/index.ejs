@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="styles/dashboard/home.css">
-<script src="js/dashboard/home.js"></script>
-<script src="js/dashboard/johan.js"></script>
-<script src="js/dashboard/script.js"></script>
+<script src="js/dashboard/home/home.js"></script>
+<script src="js/dashboard/home/functions.js"></script>
+<script src="js/dashboard/home/johan.js"></script>
+<script src="js/dashboard/home/script.js"></script>
 
 <div class="row">
     <div class="col s12 m8 l8">
@@ -19,9 +20,8 @@
     <div class="col s12 m4 l4">
         <%- partial('scriptList.ejs') %>
     </div>
-    <%- partial('johanEditModal.ejs') %>
-    <%- partial('johanDeleteModal.ejs') %>
-    <%- partial('scriptEditModal.ejs') %>
-    <%- partial('scriptDeleteModal.ejs') %>
-
 </div>
+<%- partial('johanEditModal.ejs') %>
+<%- partial('johanDeleteModal.ejs') %>
+<%- partial('scriptEditModal.ejs') %>
+<%- partial('scriptDeleteModal.ejs') %>

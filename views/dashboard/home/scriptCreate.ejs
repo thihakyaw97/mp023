@@ -9,7 +9,7 @@
         <!--Script TEXT-->
         <div class="input-field col s12">
           <input placeholder="The name of the script to control program or communicate Johan..." id="scriptText"
-            type="text" name="scriptText[]" class="validate scriptText">
+            type="text" name="scriptText" class="validate scriptText">
           <label for="scriptText">Shell script name
           </label>
         </div>
@@ -22,7 +22,7 @@
         <!--Script Audio-->
         <!--Script Audio-->
         <div class="file-field input-field col s12">
-          <div class="btn white black-text btn-small waves-effect waves-light">
+          <div class="btn white black-text">
             <span>File</span>
             <input type="file" class="scriptAudio" id="scriptAudio" name="scriptAudio">
           </div>
@@ -54,19 +54,21 @@
         <!--Response TEXT-->
         <!--Response TEXT-->
         <!--Response TEXT-->
+
+        <div class="input-field col s12 right-align">
+          <small>The response has more than one line?</small>
+          <a class="btn-floating btn-large waves-effect waves-light blue btn-small"><i class="material-icons"
+              id="scriptResponseTextAdd">add</i></a>
+        </div>
+
         <div class="input-field col s12">
           <input placeholder="The shell script response..." id="scriptResponseText" type="text"
-            name="scriptResponseText[]" class="validate scriptResponseText">
+            name="scriptResponseText" class="validate scriptResponseText">
           <label for="scriptResponseText">What did the shell script response say?</label>
         </div>
 
         <div id="scriptResponseTextNewInputs">
 
-          </div>
-        <div class="input-field col s12 right-align">
-          <small>The response has more than one line?</small>
-          <a class="btn-floating btn-large waves-effect waves-light blue btn-small"><i
-              class="material-icons" id="scriptResponseTextAdd">add</i></a>
         </div>
         <!--Response TEXT-->
         <!--Response TEXT-->
@@ -77,19 +79,20 @@
         <!--Response TEXT if fail-->
         <!--Response TEXT if fail-->
         <!--Response TEXT if fail-->
+        <div class="input-field col s12 right-align">
+          <small>The response fail text has more than one line?</small>
+          <a class="btn-floating btn-large waves-effect waves-light blue btn-small"><i class="material-icons"
+              id="scriptResponseTextIfFailAdd">add</i></a>
+        </div>
+
         <div class="input-field col s12">
           <input placeholder="If something goes wrong, what will be the response..." id="scriptResponseTextIfFail"
-            type="text" name="scriptResponseTextIfFail[]" class="validate scriptResponseText">
+            type="text" name="scriptResponseTextIfFail" class="validate scriptResponseTextIfFail">
           <label for="scriptResponseTextIfFail">What did the shell script response say if fail?</label>
         </div>
 
         <div id="scriptResponseTextIfFailNewInputs">
 
-          </div>
-        <div class="input-field col s12 right-align">
-          <small>The response fail text has more than one line?</small>
-          <a class="btn-floating btn-large waves-effect waves-light blue btn-small"><i
-              class="material-icons" id="scriptResponseTextIfFailAdd">add</i></a>
         </div>
         <!--Response TEXT if fail-->
         <!--Response TEXT if fail-->
@@ -114,7 +117,7 @@
           <p>
             <label>
               <input type="checkbox" class="filled-in scriptResponseTextFlash" id="scriptResponseTextFlash"
-                name="scriptResponseTextFlash" value="true" />
+                name="scriptResponseTextFlash" />
               <span class="white-text"><small>The response text is flashing?</small></span>
             </label>
           </p>
@@ -123,6 +126,78 @@
         <!--Response  TEXT Animation-->
         <!--Response  TEXT Animation-->
 
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <div class="input-field col s12 right-align">
+          <small>More than one image?</small>
+          <button class="btn-floating btn-large waves-effect waves-light blue btn-small"><i class="material-icons"
+              id="scriptAsciiTextAdd">add</i></button>
+        </div>
+
+        <div class="input-field col s12">
+          <textarea placeholder="If Johan is trying to show something in photo format." id="scriptAsciiText"
+            class="materialize-textarea scriptAsciiText" name="scriptAsciiText"></textarea>
+          <label for="scriptAsciiText">The script is trying to show photo in ASCII</label>
+        </div>
+
+        <div id="scriptAsciiTextNewInputs">
+
+        </div>
+
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <!--ASCII text-->
+
+        <!--ASCII text animation-->
+        <!--ASCII text animation-->
+        <!--ASCII text animation-->
+        <div class="input-field col s12">
+          <input placeholder="number in ms^1 " id="scriptAsciiTextDuration" type="number" name="scriptAsciiTextDuration"
+            class="validate scriptAsciiTextDuration">
+          <label for="scriptAsciiTextDuration">The duration between each ASCII trying to response.</label>
+        </div>
+
+        <div class="input-field col s12">
+          <input placeholder="number in ms^1 " id="scriptAsciiTextSpeed" type="number" name="scriptAsciiTextSpeed"
+            class="validate scriptAsciiTextSpeed">
+          <label for="scriptAsciiTextSpeed">How fast the ASCII moving?</label>
+        </div>
+
+        <div class="col s12 right-align">
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in scriptAsciiTextFlash" id="scriptAsciiTextFlash"
+                name="scriptAsciiTextFlash" value="true" />
+              <span class="white-text"><small>The ASCII is flashing?</small></span>
+            </label>
+          </p>
+        </div>
+        <!--ASCII text animation-->
+        <!--ASCII text animation-->
+        <!--ASCII text animation-->
+
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <div class="input-field col s12 right-align">
+          <small>Add new frame...</small>
+          <a class="btn-floating btn-large waves-effect waves-light blue btn-small" id="scriptAsciiAnimationAdd"><i
+              class="material-icons">add</i></a>
+        </div>
+
+        <div class="input-field col s12">
+          <textarea placeholder="If the script is trying to show something in ASCII animation." id="scriptAsciiAnimation"
+            class="materialize-textarea scriptAsciiAnimation" name="scriptAsciiAnimation"></textarea>
+          <label for="scriptAsciiAnimation">Script Animation</label>
+        </div>
+
+        <div id="scriptAsciiAnimationNewInputs">
+
+        </div>
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <!--ASCII text-->
         <!--Special Action-->
         <!--Special Action-->
         <!--Special Action-->

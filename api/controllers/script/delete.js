@@ -16,16 +16,22 @@ module.exports = {
 
 
   exits: {
-    success:{
-      description:"Successfully deleted."
+    success: {
+      description: "Successfully deleted."
     }
   },
 
 
-  fn: async function (inputs,exits) {
+  fn: async function (inputs, exits) {
 
     let id = inputs.id;
-    await Script.destroy({_id:id});
+    await Script.destroy({
+      _id: id
+    });
+    //Socket
+    sails.sockets.join(this.req, 'scripts');
+    var scripts = await Script.find();
+    sails.sockets.broadcast('scripts', 'getAllScripts', scripts);
     // All done.
     return exits.success();
 

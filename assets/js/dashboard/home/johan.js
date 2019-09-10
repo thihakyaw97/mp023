@@ -1,12 +1,4 @@
-//Universal Remove function uwu
-//Universal Remove function uwu
-//Universal Remove function uwu
-$(document).on("click", '.remove', function () {
-  $("." + $(this).data('id')).remove();
-});
-//Universal Remove function uwu
-//Universal Remove function uwu
-//Universal Remove function uwu
+
 
 //ADD MORE INPUTS FOR JOHAN
 //ADD MORE INPUTS FOR JOHAN
@@ -150,12 +142,3 @@ $(document).on("click", '#johanAsciiAnimationAdd', function () {
 //ADD MORE INPUTS FOR JOHAN
 
 
-//MULTIPLE INSERT TEST
-$(document).on("click", '#johanAdd', function () {
-    const inputs = $(".johanText");
-
-    for(var i = 0; i < inputs.length; i++){
-        console.log($(inputs[i]).val());
-    }
-    
-  });

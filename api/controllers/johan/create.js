@@ -106,10 +106,13 @@ module.exports = {
       description: 'determine response message is flashing message or not',
     },
 
-    savePoint: {
-      type: 'string',
-      description: 'If you are bored and want to play later, this column will save the program for you.',
+    asciiAnimation: {
+      type: 'json',
+      columnType:'array',
+      description: 'Johan sometimes want to show what he see in ascii animation.',
     },
+
+
   },
 
 
@@ -142,6 +145,7 @@ module.exports = {
       asciiTextDuration:inputs.asciiTextDuration,
       asciiTextSpeed:inputs.asciiTextSpeed,
       asciiTextFlash:inputs.asciiTextFlash,
+      asciiAnimation:inputs.asciiAnimation,
       savePoint:await sails.bcrypt.hashSync(inputs.text[0], sails.saltRounds),
     }).fetch();
     

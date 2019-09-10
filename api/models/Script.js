@@ -8,7 +8,7 @@
 module.exports = {
 
   attributes: {
-    script: {
+    scriptText: {
       type: 'string',
       required: true,
       example: 'mp load mp_23',
@@ -61,6 +61,34 @@ module.exports = {
       description: 'determine response message is flashing message or not',
     },
     
+    asciiText: {
+      type: 'json',
+      columnType:'array',
+      description: 'Script sometimes want to show in ascii.',
+    },
+
+    asciiTextDuration: {
+      type: 'number',
+      description: 'Duration of between each ascii texts.',
+    },
+
+    asciiTextSpeed: {
+      type: 'number',
+      description: 'Speed response texts.',
+    },
+
+    asciiTextFlash: {
+      type: 'boolean',
+      description: 'determine response message is flashing message or not',
+    },
+    asciiAnimation: {
+      type: 'json',
+      columnType:'array',
+      description: 'Script sometimes want to show what he see in ascii animation.',
+    },
+
+
+
     specialAction: {
       type: 'string',
       description: 'for exiting or clearing texts, the instruction is needed and it is implemented here.'

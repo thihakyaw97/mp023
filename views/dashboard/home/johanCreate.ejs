@@ -7,6 +7,12 @@
         <!--JOHAN TEXT-->
         <!--JOHAN TEXT-->
         <!--JOHAN TEXT-->
+        <div class="input-field col s12 right-align">
+          <small>Did he say more?</small>
+          <button class="btn-floating btn-large waves-effect waves-light blue btn-small" id="johanTextAdd"><i
+              class="material-icons">add</i></button>
+        </div>
+
         <div class="input-field col s12" id="johanTextParent">
           <input placeholder="Johan is trying to say something..." id="johanText" type="text" name="johanText[]"
             class="validate johanText">
@@ -18,11 +24,7 @@
 
         </div>
 
-        <div class="input-field col s12 right-align">
-          <small>Did he say more?</small>
-          <button class="btn-floating btn-large waves-effect waves-light blue btn-small" id="johanTextAdd"><i
-              class="material-icons">add</i></button>
-        </div>
+
         <!--JOHAN TEXT-->
         <!--JOHAN TEXT-->
         <!--JOHAN TEXT-->
@@ -103,14 +105,13 @@
 
         <div class="input-field col s12 l6">
           <select name="johanResponse" class="johanResponse" id="johanResponse">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
           </select>
           <label>If Johan needs player's response, what would it be?</label>
         </div>
         <!--Customize Response Text-->
         <!--Customize Response Text-->
         <!--Customize Response Text-->
+
         <div class="col s12 right-align">
           <p>
             <label>
@@ -121,8 +122,14 @@
           </p>
         </div>
 
+        <div class="input-field col s12 right-align">
+          <small>The customize response text has more than one line?</small>
+          <a class="btn-floating btn-large waves-effect waves-light blue btn-small"><i class="material-icons"
+              id="johanResponseTextAdd">add</i></a>
+        </div>
+        
         <div class="input-field col s12">
-          <input placeholder="Johan is trying to say something..." id="johanResponseText" type="text"
+          <input placeholder="The response text from mp program..." id="johanResponseText" type="text"
             name="johanResponseText[]" class="validate johanResponseText">
           <label for="johanResponseText">What did
             the shell script response (Customize Text)</label>
@@ -132,14 +139,16 @@
 
         </div>
 
+        <!--Customize Response Text-->
+        <!--Customize Response Text-->
+        <!--Customize Response Text-->
+
         <div class="input-field col s12 right-align">
-          <small>The customize response text has more than one line?</small>
-          <a class="btn-floating btn-large waves-effect waves-light blue btn-small"><i class="material-icons"
-              id="johanResponseTextAdd">add</i></a>
+          <small>Did the mp program response more?</small>
+          <button class="btn-floating btn-large waves-effect waves-light blue btn-small"><i class="material-icons"
+              id="johanResponseTextIfFailAdd">add</i></button>
         </div>
-        <!--Customize Response Text-->
-        <!--Customize Response Text-->
-        <!--Customize Response Text-->
+
         <div class="input-field col s12">
           <input placeholder="You type the wrong script and the mp program said..." id="johanResponseTextIfFail"
             type="text" name="johanResponseTextIfFail[]" class="validate johanResponseTextIfFail">
@@ -151,9 +160,9 @@
         </div>
 
         <div class="input-field col s12 right-align">
-          <small>Did the mp program response more?</small>
-          <button class="btn-floating btn-large waves-effect waves-light blue btn-small"><i class="material-icons"
-              id="johanResponseTextIfFailAdd">add</i></button>
+          <small>Did the mp program response more for quitting?</small>
+          <button class="btn-floating btn-large waves-effect waves-light blue btn-small"
+            id="johanResponseTextIfYouQuitAdd"><i class="material-icons">add</i></button>
         </div>
 
         <div class="input-field col s12">
@@ -168,11 +177,7 @@
 
         </div>
 
-        <div class="input-field col s12 right-align">
-          <small>Did the mp program response more for quitting?</small>
-          <button class="btn-floating btn-large waves-effect waves-light blue btn-small"
-            id="johanResponseTextIfYouQuitAdd"><i class="material-icons">add</i></button>
-        </div>
+
         <!--Player Response-->
         <!--Player Response-->
         <!--Player Response-->
@@ -211,6 +216,12 @@
         <!--ASCII text-->
         <!--ASCII text-->
         <!--ASCII text-->
+        <div class="input-field col s12 right-align">
+          <small>More than one image?</small>
+          <button class="btn-floating btn-large waves-effect waves-light blue btn-small"><i class="material-icons"
+              id="johanAsciiTextAdd">add</i></button>
+        </div>
+
         <div class="input-field col s12">
           <textarea placeholder="If Johan is trying to show something in photo format." id="johanAsciiText"
             class="materialize-textarea johanAsciiText" name="johanAsciiText"></textarea>
@@ -220,11 +231,7 @@
         <div id="johanAsciiTextNewInputs">
 
         </div>
-        <div class="input-field col s12 right-align">
-          <small>More than one image?</small>
-          <button class="btn-floating btn-large waves-effect waves-light blue btn-small"><i class="material-icons"
-              id="johanAsciiTextAdd">add</i></button>
-        </div>
+
         <!--ASCII text-->
         <!--ASCII text-->
         <!--ASCII text-->
@@ -260,6 +267,12 @@
         <!--ASCII text-->
         <!--ASCII text-->
         <!--ASCII text-->
+        <div class="input-field col s12 right-align">
+          <small>Add new frame...</small>
+          <a class="btn-floating btn-large waves-effect waves-light blue btn-small" id="johanAsciiAnimationAdd"><i
+              class="material-icons">add</i></a>
+        </div>
+
         <div class="input-field col s12">
           <textarea placeholder="If Johan is trying to show something in ASCII animation." id="johanAsciiAnimation"
             class="materialize-textarea johanAsciiAnimation" name="johanAsciiAnimation"></textarea>
@@ -268,12 +281,6 @@
 
         <div id="johanAsciiAnimationNewInputs">
 
-        </div>
-
-        <div class="input-field col s12 right-align">
-          <small>Add new frame...</small>
-          <a class="btn-floating btn-large waves-effect waves-light blue btn-small" id="johanAsciiAnimationAdd"><i
-              class="material-icons">add</i></a>
         </div>
         <!--ASCII text-->
         <!--ASCII text-->

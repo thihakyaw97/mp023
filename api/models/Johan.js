@@ -113,17 +113,18 @@ module.exports = {
       type: 'number',
       description: 'Speed response texts.',
     },
-
+    asciiTextFlash: {
+      type: 'boolean',
+      description: 'determine response message is flashing message or not',
+    },
+    
     asciiAnimation: {
       type: 'json',
       columnType:'array',
       description: 'Johan sometimes want to show what he see in ascii animation.',
     },
 
-    asciiTextFlash: {
-      type: 'boolean',
-      description: 'determine response message is flashing message or not',
-    },
+
 
     savePoint: {
       type: 'string',

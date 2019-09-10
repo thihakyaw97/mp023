@@ -19,10 +19,21 @@ module.exports = {
 
   fn: async function (inputs) {
 
+
+    if (!this.req.isSocket) {
+      return this.res.badRequest();
+    }
+
+    sails.sockets.join(this.req, 'scripts');
+
+    
     var scripts = await Script.find();
 
-    return this.res.json(scripts);
+    sails.sockets.broadcast('scripts', 'getAllScripts',scripts);
 
+
+
+    //return this.res.json(scripts);
   }
 
 
