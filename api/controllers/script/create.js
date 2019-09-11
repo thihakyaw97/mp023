@@ -32,7 +32,6 @@ module.exports = {
 
     responseText: {
       type: 'json',
-      required: true,
       description: 'The response if the script executed succefully.'
     },
     responseTextIfFail: {

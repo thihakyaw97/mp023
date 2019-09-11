@@ -21,9 +21,18 @@ module.exports = {
 
   fn: async function (inputs) {
 
+    if (!this.req.isSocket) {
+      return this.res.badRequest();
+    }
+
+    sails.sockets.join(this.req, 'johan');
+
+    
     var johan = await Johan.find();
 
-    return this.res.json(johan);
+    sails.sockets.broadcast('johan', 'getAllJohan',johan);
+
+
 
   }
 

@@ -49,10 +49,6 @@ module.exports = {
       description: 'determine text message is flashing message or not',
     },
 
-    needResponse: {
-      type: 'boolean',
-      description: 'True when johan needs your response'
-    },
 
     // Add a reference to Script
     response: {
@@ -67,7 +63,6 @@ module.exports = {
     responseText: {
       type: 'json',
       columnType:'array',
-      required: true,
       description: 'The custom response if the script executed succefully.'
     },
 

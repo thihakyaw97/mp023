@@ -48,15 +48,16 @@ module.exports = {
       description: 'determine text message is flashing message or not',
     },
 
-    needResponse: {
-      type: 'boolean',
-      description: 'True when johan needs your response'
-    },
-
     // Add a reference to Script
     response: {
       type: 'string',
       model: 'script'
+    },
+
+    responseText: {
+      type: 'json',
+      columnType:'array',
+      description: 'The custom response if the script executed succefully.'
     },
 
     responseTextIfFail: {
@@ -87,7 +88,8 @@ module.exports = {
     },
 
     asciiText: {
-      type: 'string',
+      type: 'json',
+      columnType:'array',
       description: 'Johan sometimes want to show what he see in ascii.',
     },
 
@@ -139,7 +141,7 @@ module.exports = {
   fn: async function (inputs,exits) {
 
     //Create
-    const johan = await Johan.create({
+    const newJohan = await Johan.create({
       text:inputs.text,
       sort:inputs.sort,
       audio:inputs.audio,
@@ -147,8 +149,8 @@ module.exports = {
       textDuration:inputs.textDuration,
       textSpeed:inputs.textSpeed,
       textFlash:inputs.textFlash,
-      needResponse:inputs.needResponse,
       response:inputs.response,
+      responseText:inputs.responseText,
       responseTextIfFail:inputs.responseTextIfFail,
       responseTextIfYouQuit:inputs.responseTextIfYouQuit,
       responseTextDuration:inputs.responseTextDuration,
@@ -165,8 +167,14 @@ module.exports = {
       savePoint:await sails.bcrypt.hashSync(inputs.text[0], sails.saltRounds),
     }).fetch();
     
+    sails.sockets.join(this.req, 'johan');
+
+    var johan = await Johan.find();
+
+    sails.sockets.broadcast('johan', 'getAllJohan',johan);
+    
     // All done.
-    return exits.success({johan});
+    return exits.success(newJohan);
 
   }
 

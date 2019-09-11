@@ -1,5 +1,3 @@
-
-
 //ADD MORE INPUTS FOR JOHAN
 //ADD MORE INPUTS FOR JOHAN
 //ADD MORE INPUTS FOR JOHAN
@@ -141,6 +139,37 @@ $(document).on("click", '#johanAsciiAnimationAdd', function () {
 //ADD MORE INPUTS FOR JOHAN
 //ADD MORE INPUTS FOR JOHAN
 
+io.socket.on('getAllJohan', function (data) {
+
+  $(".johanList").remove();
+
+  $.each(data, (index, value) => {
+
+    $("#johanList").append(`
+
+    <div class="col s12">
+      <div class="card grey darken-3">
+        <div class="card-content white-text">
+          <p>`+value.text+`</p>
+        </div>
+        <div class="card-action right-align">
+          <a class="modal-trigger waves-effect waves-light" href="#johanEdit"><i class="material-icons green-text">edit</i></a>
+          <a class="modal-trigger waves-effect waves-light" href="#johanDelete"><i class="material-icons red-text">delete</i></a>
+        </div>
+      </div>
+    </div>
+  `);
+  });
+
+
+  //Removing loading
+  $("#johanListLoading").removeClass("active");
+
+});
+
+io.socket.get('/api/v1/johan/get', getResponse = (data, jwRes) => {
+
+});
 
 $(document).on("click", '#johanAdd', function () {
 
@@ -148,38 +177,36 @@ $(document).on("click", '#johanAdd', function () {
     text: gettingValuesFromInputs($(".johanText")),
     audio: $('#johanAudio').val(),
     sort: 1,
-    audioPlayTiming:$('#johanAudioPlayTiming').prop("checked") ? true : false,
-    textDuration:$('#johanTextDuration').val(),
-    textSpeed:$('#johanTextSpeed').val(),
-    textFlash:$('#johanTextFlash').prop("checked")? true:false,
-    
-    needResponse:$('#johanNeedResponse').val()=="yes"?true:false,
-    response:$('#johanResponse').val(),
-    customizeResponseText:$('#johanCustomizeResponseText').prop('checked')?true:false,
-    
-    responseText:gettingValuesFromInputs($('.johanResponseText')),
-    responseTextIfFail:gettingValuesFromInputs($('.johanResponseTextIfFail')),
-    responseTextIfYouQuit:gettingValuesFromInputs($('.johanResponseTextIfYouQuit')),
-    responseTextDuration:$('#johanResponseTextDuration').val(),
-    responseTextSpeed:$('#johanResponseTextSpeed').val(),
-    responseTextFlash:$('#johanResponseTextFlash').prop("checked")?true:false,
+    audioPlayTiming: $('#johanAudioPlayTiming').prop("checked") ? true : false,
+    textDuration: $('#johanTextDuration').val(),
+    textSpeed: $('#johanTextSpeed').val(),
+    textFlash: $('#johanTextFlash').prop("checked") ? true : false,
 
-    asciiText:gettingValuesFromInputs($('.johanAsciiText')),
-    asciiTextDuration:$('#johanAsciiTextDuration').val(),
-    asciiTextSpeed:$('#johanAsciiTextSpeed').val(),
-    asciiTextFlash:$('#johanAsciiTextFlash').prop("checked")?true:false,
+    needResponse: $('#johanNeedResponse').val() == "yes" ? true : false,
+    response: $('#johanResponse').val(),
+    responseText: gettingValuesFromInputs($('.johanResponseText')),
+    responseTextIfFail: gettingValuesFromInputs($('.johanResponseTextIfFail')),
+    responseTextIfYouQuit: gettingValuesFromInputs($('.johanResponseTextIfYouQuit')),
+    responseTextDuration: $('#johanResponseTextDuration').val(),
+    responseTextSpeed: $('#johanResponseTextSpeed').val(),
+    responseTextFlash: $('#johanResponseTextFlash').prop("checked") ? true : false,
 
-    asciiAnimation:gettingValuesFromInputs($('.johanAsciiAnimation')),
+    asciiText: gettingValuesFromInputs($('.johanAsciiText')),
+    asciiTextDuration: $('#johanAsciiTextDuration').val(),
+    asciiTextSpeed: $('#johanAsciiTextSpeed').val(),
+    asciiTextFlash: $('#johanAsciiTextFlash').prop("checked") ? true : false,
 
-    cpuUsage:$('#johanCpuUsage').val(),
-    memoryUsage:$('#johanMemoryUsage').val(),
-    diskUsage:$('#johanDiskUsage').val(),
+    asciiAnimation: gettingValuesFromInputs($('.johanAsciiAnimation')),
+
+    cpuUsage: $('#johanCpuUsage').val(),
+    memoryUsage: $('#johanMemoryUsage').val(),
+    diskUsage: $('#johanDiskUsage').val(),
   };
 
   console.log(data);
-  /*
-  io.socket.post('/api/v1/script/create', data, function (resData, jwRes) {
+
+  io.socket.post('/api/v1/johan/create', data, function (resData, jwRes) {
     console.log(resData); // => 200
   });
-  */
+
 });
