@@ -124,7 +124,20 @@ module.exports = {
       description: 'Johan sometimes want to show what he see in ascii animation.',
     },
 
+    cpuUsage: {
+      type: 'number',
+      description: 'CPU Usage',
+    },
 
+    memoryUsage: {
+      type: 'number',
+      description: 'Memory Usage',
+    },
+
+    diskUsage: {
+      type: 'number',
+      description: 'Memory Usage',
+    },
 
     savePoint: {
       type: 'string',

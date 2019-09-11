@@ -169,6 +169,10 @@ $(document).on("click", '#johanAdd', function () {
     asciiTextFlash:$('#johanAsciiTextFlash').prop("checked")?true:false,
 
     asciiAnimation:gettingValuesFromInputs($('.johanAsciiAnimation')),
+
+    cpuUsage:$('#johanCpuUsage').val(),
+    memoryUsage:$('#johanMemoryUsage').val(),
+    diskUsage:$('#johanDiskUsage').val(),
   };
 
   console.log(data);

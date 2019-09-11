@@ -112,7 +112,20 @@ module.exports = {
       description: 'Johan sometimes want to show what he see in ascii animation.',
     },
 
+    cpuUsage: {
+      type: 'number',
+      description: 'CPU Usage',
+    },
 
+    memoryUsage: {
+      type: 'number',
+      description: 'Memory Usage',
+    },
+
+    diskUsage: {
+      type: 'number',
+      description: 'Memory Usage',
+    },
   },
 
 
@@ -146,6 +159,9 @@ module.exports = {
       asciiTextSpeed:inputs.asciiTextSpeed,
       asciiTextFlash:inputs.asciiTextFlash,
       asciiAnimation:inputs.asciiAnimation,
+      cpuUsage:inputs.cpuUsage,
+      memoryUsage:inputs.memoryUsage,
+      diskUsage:inputs.diskUsage,
       savePoint:await sails.bcrypt.hashSync(inputs.text[0], sails.saltRounds),
     }).fetch();
     
