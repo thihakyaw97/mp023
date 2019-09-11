@@ -142,3 +142,39 @@ $(document).on("click", '#johanAsciiAnimationAdd', function () {
 //ADD MORE INPUTS FOR JOHAN
 
 
+$(document).on("click", '#johanAdd', function () {
+
+  const data = {
+    text: gettingValuesFromInputs($(".johanText")),
+    audio: $('#johanAudio').val(),
+    sort: 1,
+    audioPlayTiming:$('#johanAudioPlayTiming').prop("checked") ? true : false,
+    textDuration:$('#johanTextDuration').val(),
+    textSpeed:$('#johanTextSpeed').val(),
+    textFlash:$('#johanTextFlash').prop("checked")? true:false,
+    
+    needResponse:$('#johanNeedResponse').val()=="yes"?true:false,
+    customizeResponseText:$('#johanCustomizeResponseText').prop('checked')?true:false,
+    
+    responseText:gettingValuesFromInputs($('.johanResponseText')),
+    responseTextIfFail:gettingValuesFromInputs($('.johanResponseTextIfFail')),
+    responseTextIfYouQuit:gettingValuesFromInputs($('.johanResponseTextIfYouQuit')),
+    responseTextDuration:$('#johanResponseTextDuration').val(),
+    responseTextSpeed:$('#johanResponseTextSpeed').val(),
+    responseTextFlash:$('#johanResponseTextFlash').prop("checked")?true:false,
+
+    asciiText:gettingValuesFromInputs($('.johanAsciiText')),
+    asciiTextDuration:$('#johanAsciiTextDuration').val(),
+    asciiTextSpeed:$('#johanAsciiTextSpeed').val(),
+    asciiTextFlash:$('#johanAsciiTextFlash').prop("checked")?true:false,
+
+    asciiAnimation:gettingValuesFromInputs($('.johanAsciiAnimation')),
+  };
+
+  console.log(data);
+  /*
+  io.socket.post('/api/v1/script/create', data, function (resData, jwRes) {
+    console.log(resData); // => 200
+  });
+  */
+});

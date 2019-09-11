@@ -130,9 +130,6 @@ io.socket.get('/api/v1/script/get', getResponse = (data, jwRes) => {
 
 $(document).on("click", '#scriptAdd', function () {
 
-  console.log($('#scriptResponseTextFlash').prop("checked") ? true : false);
-  console.log($('#scriptAsciiTextFlash').prop("checked") ? true : false);
-
   const data = {
     scriptText: $('#scriptText').val(),
     audio: $('#scriptAudio').val(),
