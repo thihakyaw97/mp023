@@ -154,6 +154,7 @@ $(document).on("click", '#johanAdd', function () {
     textFlash:$('#johanTextFlash').prop("checked")? true:false,
     
     needResponse:$('#johanNeedResponse').val()=="yes"?true:false,
+    response:$('#johanResponse').val(),
     customizeResponseText:$('#johanCustomizeResponseText').prop('checked')?true:false,
     
     responseText:gettingValuesFromInputs($('.johanResponseText')),

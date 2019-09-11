@@ -111,14 +111,15 @@ io.socket.on('getAllScripts', function (data) {
   `);
   });
 
-  /*
+  
   $.each(data, (index, value) => {
     $("#johanResponse").append(`
   <option class="johanResponseList" value="` + value.id + `">` + value.scriptText + `</option>
   `);
-    console.log(value.id);
-  });*/
-
+    
+  });
+  //INITIALIZING SELECT AGAIN BECAUSE IT KEEP RESETING 
+  $('#johanResponse').formSelect();
   //Removing loading
   $("#scriptListLoading").removeClass("active");
 
