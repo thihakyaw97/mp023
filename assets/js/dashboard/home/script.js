@@ -157,7 +157,8 @@ $(document).on("click", '#scriptAdd', function () {
 
 
 $(document).on("click", '.deleteScript', function () {
-  $("#scriptTextNameDelete").append($(this).data('text'));
+
+  $("#scriptTextNameDelete").text($(this).data('text'));
   $("#deleteScriptModal").attr("data-id", $(this).data('id'));
 
 

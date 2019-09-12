@@ -147,14 +147,14 @@ io.socket.on('getAllJohan', function (data) {
 
     $("#johanList").append(`
 
-    <div class="col s12">
+    <div class="col s12 johanList">
       <div class="card grey darken-3">
         <div class="card-content white-text">
           <p>`+value.text+`</p>
         </div>
         <div class="card-action right-align">
           <a class="modal-trigger waves-effect waves-light" href="#johanEdit"><i class="material-icons green-text">edit</i></a>
-          <a class="modal-trigger waves-effect waves-light" href="#johanDelete"><i class="material-icons red-text">delete</i></a>
+          <a class="modal-trigger waves-effect waves-light deleteJohan" href="#johanDelete" data-id=` + value.id + ` data-text="`+ value.text +`" data-sort="`+value.sort+`"><i class="material-icons red-text">delete</i></a>
         </div>
       </div>
     </div>
@@ -203,10 +203,27 @@ $(document).on("click", '#johanAdd', function () {
     diskUsage: $('#johanDiskUsage').val(),
   };
 
-  console.log(data);
 
   io.socket.post('/api/v1/johan/create', data, function (resData, jwRes) {
     console.log(resData); // => 200
+  });
+
+});
+
+
+$(document).on("click", '.deleteJohan', function () {
+
+  $("#johanTextNameDelete").text($(this).data('text'));
+  $("#deleteJohanModal").attr("data-id", $(this).data('id'));
+
+
+});
+
+$(document).on("click", '#deleteJohanModal', function () {
+  var id = $(this).data('id');
+  
+  io.socket.delete('/api/v1/johan/delete/' + id, (resData) => {
+
   });
 
 });
