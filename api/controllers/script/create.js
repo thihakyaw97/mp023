@@ -105,6 +105,7 @@ module.exports = {
     const newScript = await Script.create({
       scriptText:inputs.scriptText,
       sort:inputs.sort,
+      audio:inputs.audio,
       description:inputs.description,
       responseText:inputs.responseText,
       responseTextIfFail:inputs.responseTextIfFail,
