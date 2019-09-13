@@ -52,15 +52,16 @@ module.exports = {
       description: 'determine text message is flashing message or not',
     },
 
-    needResponse: {
-      type: 'boolean',
-      description: 'True when johan needs your response'
-    },
-
     // Add a reference to Script
     response: {
       type: 'string',
       model: 'script'
+    },
+
+    responseText: {
+      type: 'json',
+      columnType:'array',
+      description: 'The custom response if the script executed succefully.'
     },
 
     responseTextIfFail: {
@@ -91,7 +92,8 @@ module.exports = {
     },
 
     asciiText: {
-      type: 'string',
+      type: 'json',
+      columnType:'array',
       description: 'Johan sometimes want to show what he see in ascii.',
     },
 
@@ -110,9 +112,25 @@ module.exports = {
       description: 'determine response message is flashing message or not',
     },
 
-    savePoint: {
-      type: 'string',
-      description: 'If you are bored and want to play later, this column will save the program for you.',
+    asciiAnimation: {
+      type: 'json',
+      columnType:'array',
+      description: 'Johan sometimes want to show what he see in ascii animation.',
+    },
+
+    cpuUsage: {
+      type: 'number',
+      description: 'CPU Usage',
+    },
+
+    memoryUsage: {
+      type: 'number',
+      description: 'Memory Usage',
+    },
+
+    diskUsage: {
+      type: 'number',
+      description: 'Memory Usage',
     },
   },
 
@@ -137,8 +155,8 @@ module.exports = {
         textDuration:inputs.textDuration,
         textSpeed:inputs.textSpeed,
         textFlash:inputs.textFlash,
-        needResponse:inputs.needResponse,
         response:inputs.response,
+        responseText:inputs.responseText,
         responseTextIfFail:inputs.responseTextIfFail,
         responseTextIfYouQuit:inputs.responseTextIfYouQuit,
         responseTextDuration:inputs.responseTextDuration,
@@ -148,8 +166,17 @@ module.exports = {
         asciiTextDuration:inputs.asciiTextDuration,
         asciiTextSpeed:inputs.asciiTextSpeed,
         asciiTextFlash:inputs.asciiTextFlash,
+        asciiAnimation:inputs.asciiAnimation,
+        cpuUsage:inputs.cpuUsage,
+        memoryUsage:inputs.memoryUsage,
+        diskUsage:inputs.diskUsage,
       }).fetch();
 
+      sails.sockets.join(this.req, 'johan');
+
+      var johan = await Johan.find();
+  
+      sails.sockets.broadcast('johan', 'getAllJohan',johan);
     // All donee
     return exits.success({updatedJohan});
   }

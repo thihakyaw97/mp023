@@ -1,10 +1,328 @@
   <!-- Johan Edit Modal -->
   <div id="johanEdit" class="modal">
     <div class="modal-content grey darken-3 white-text">
-      <h4>Johan Edit</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer grey darken-3 white-text">
-      <a href="#!" class="btn red modal-close waves-effect waves-light red">Close</a>
+      <div class="row">
+        <h5 style="font-size:18px;padding-bottom:20px;">//Johan says something, audio and his text animations</h5>
+        <!--JOHAN TEXT-->
+        <!--JOHAN TEXT-->
+        <!--JOHAN TEXT-->
+        <div class="input-field col s12 right-align">
+          <small>Did he say more?</small>
+          <button class="btn-floating btn-large waves-effect waves-light blue btn-small" id="johanTextAddEdit"><i
+              class="material-icons">add</i></button>
+        </div>
+
+        <div class="input-field col s12" id="johanTextParent">
+          <input placeholder="Johan is trying to say something..." id="johanTextEdit" type="text" name="johanTextEdit[]"
+            class="validate johanTextEdit">
+          <label for="johanTextEdit">What did Johan say?
+          </label>
+        </div>
+
+        <div id="johanTextNewInputsEdit">
+
+        </div>
+
+
+        <!--JOHAN TEXT-->
+        <!--JOHAN TEXT-->
+        <!--JOHAN TEXT-->
+
+        <!--JOHAN Audio-->
+        <!--JOHAN Audio-->
+        <!--JOHAN Audio-->
+        <div class="file-field input-field col s12">
+          <div class="btn white black-text">
+            <span>File</span>
+            <input type="file" class="johanAudio" id="johanAudioEdit" name="johanAudioEdit">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Johan is saying in his voice?">
+          </div>
+        </div>
+
+
+        <div class="input-field col s12 right-align">
+          <a class="btn-floating btn-large waves-effect waves-light red btn-small"><i
+              class="material-icons">cancel</i></a>
+        </div>
+        <div class="col s12 right-align">
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in johanAudioTimingEdit" id="johanAudioTimingEdit" name="johanAudioTimingEdit"
+                value="true" />
+              <span class="white-text"><small>he says that while saying in text</small></span>
+            </label>
+          </p>
+        </div>
+
+        <!--JOHAN Audio-->
+        <!--JOHAN Audio-->
+        <!--JOHAN Audio-->
+
+        <!--JOHAN TEXT Animation-->
+        <!--JOHAN TEXT Animation-->
+        <!--JOHAN TEXT Animation-->
+        <div class="input-field col s12 l6">
+          <input placeholder="number in ms^1 " id="johanTextDurationEdit" type="number" name="johanTextDurationEdit"
+            class="validate johanTextDurationEdit">
+          <label for="johanTextDurationEdit">The duration between each text Johan trying to say.</label>
+        </div>
+
+        <div class="input-field col s12 l6">
+          <input placeholder="number in ms^1 " id="johanTextSpeedEdit" type="number" name="johanTextSpeedEdit"
+            class="validate johanTextSpeedEdit">
+          <label for="johanTextSpeedEdit">How fast Johan is saying?</label>
+        </div>
+
+        <div class="col s12 right-align">
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in johanTextFlashEdit" id="johanTextFlashEdit" name="johanTextFlashEdit"
+                value="true" />
+              <span class="white-text"><small>The text is flashing?</small></span>
+            </label>
+          </p>
+        </div>
+        <!--JOHAN TEXT Animation-->
+        <!--JOHAN TEXT Animation-->
+        <!--JOHAN TEXT Animation-->
+
+        <!--Player Response-->
+        <!--Player Response-->
+        <!--Player Response-->
+
+
+
+        <div class="input-field col s12">
+          <select name="johanResponseEdit" class="johanResponseEdit" id="johanResponseEdit">
+          </select>
+          <label>If Johan needs player's response, what would it be?</label>
+        </div>
+        <!--Customize Response Text-->
+        <!--Customize Response Text-->
+        <!--Customize Response Text-->
+
+        <div class="input-field col s12 right-align">
+          <small>The customize response text has more than one line?</small>
+          <a class="btn-floating btn-large waves-effect waves-light blue btn-small"><i class="material-icons"
+              id="johanResponseTextAddEdit">add</i></a>
+        </div>
+
+        <div class="input-field col s12">
+          <input placeholder="The response text from mp program..." id="johanResponseTextEdit" type="text"
+            name="johanResponseTextEdit[]" class="validate johanResponseTextEdit">
+          <label for="johanResponseTexEditt">What did
+            the shell script response (Customize Text)</label>
+        </div>
+
+        <div id="johanResponseTextNewInputsEdit">
+
+        </div>
+
+        <!--Customize Response Text-->
+        <!--Customize Response Text-->
+        <!--Customize Response Text-->
+
+        <div class="input-field col s12 right-align">
+          <small>Did the mp program response more?</small>
+          <button class="btn-floating btn-large waves-effect waves-light blue btn-small"><i class="material-icons"
+              id="johanResponseTextIfFailAddEdit">add</i></button>
+        </div>
+
+        <div class="input-field col s12">
+          <input placeholder="You type the wrong script and the mp program said..." id="johanResponseTextIfFailEdit"
+            type="text" name="johanResponseTextIfFailEdit[]" class="validate johanResponseTextIfFailEdit">
+          <label for="johanResponseTextIfFailEdit">What did mp program response when you type wrong script?</label>
+        </div>
+
+        <div id="johanResponseTextIfFailNewInputsEdit">
+
+        </div>
+
+        <div class="input-field col s12 right-align">
+          <small>Did the mp program response more for quitting?</small>
+          <button class="btn-floating btn-large waves-effect waves-light blue btn-small"
+            id="johanResponseTextIfYouQuitAddEdit"><i class="material-icons">add</i></button>
+        </div>
+
+        <div class="input-field col s12">
+          <input placeholder="You quit and open the mp program again. mp program said..."
+            id="johanResponseTextIfYouQuitEdit" type="text" name="johanResponseTextIfYouQuitEdit[]"
+            class="validate johanResponseTextIfYouQuitEdit">
+          <label for="johanResponseTextIfYouQuitEdit">What did mp program response after you turn on the mp program
+            again?</label>
+        </div>
+
+        <div id="johanResponseTextIfYouQuitNewInputsEdit">
+
+        </div>
+
+
+        <!--Player Response-->
+        <!--Player Response-->
+        <!--Player Response-->
+
+
+        <!--Response  TEXT Animation-->
+        <!--Response TEXT Animation-->
+        <!--Response  TEXT Animation-->
+        <div class="input-field col s12 l6">
+          <input placeholder="number in ms^1 " id="johanResponseTextDurationEdit" type="number"
+            name="johanResponseTextDurationEdit" class="validate johanResponseTextDurationEdit">
+          <label for="johanResponseTextDurationEdit">The duration between each text mp program trying to response.</label>
+        </div>
+
+        <div class="input-field col s12 l6">
+          <input placeholder="number in ms^1 " id="johanResponseTextSpeedEdit" type="number" name="johanResponseTextSpeedEdit"
+            class="validate johanResponseTextSpeedEdit">
+          <label for="johanResponseTextSpeedEdit">How fast the mp program is saying?</label>
+        </div>
+
+        <div class="col s12 right-align">
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in johanResponseTextFlashEdit" id="johanResponseTextFlashEdit"
+                name="johanResponseTextFlashEdit" value="true" />
+              <span class="white-text"><small>The response text is flashing?</small></span>
+            </label>
+          </p>
+        </div>
+        <!--Response  TEXT Animation-->
+        <!--Response  TEXT Animation-->
+        <!--Response  TEXT Animation-->
+
+        <h5 style="font-size:18px;padding-bottom:20px;">//Johan demostrate himself in ASCII text images and animation.
+          This is new feature of mp.</h5>
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <div class="input-field col s12 right-align">
+          <small>More than one image?</small>
+          <button class="btn-floating btn-large waves-effect waves-light blue btn-small"><i class="material-icons"
+              id="johanAsciiTextAddEdit">add</i></button>
+        </div>
+
+        <div class="input-field col s12">
+          <textarea placeholder="If Johan is trying to show something in photo format." id="johanAsciiTextEdit"
+            class="materialize-textarea johanAsciiTextEdit" name="johanAsciiTextEdit"></textarea>
+          <label for="johanAsciiTextEdit">Johan's trying to show photo in ASCII</label>
+        </div>
+
+        <div id="johanAsciiTextNewInputsEdit">
+
+        </div>
+
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <!--ASCII text-->
+
+        <!--ASCII text animation-->
+        <!--ASCII text animation-->
+        <!--ASCII text animation-->
+
+        <div class="input-field col s12 l6">
+          <input placeholder="number in ms^1 " id="johanAsciiTextDurationEdit" type="number" name="johanAsciiTextDurationEdit"
+            class="validate johanAsciiTextDurationEdit">
+          <label for="johanAsciiTextDurationEdit">The duration between each ASCII trying to response.</label>
+        </div>
+
+        <div class="input-field col s12 l6">
+          <input placeholder="number in ms^1 " id="johanAsciiTextSpeedEdit" type="number" name="johanAsciiTextSpeedEdit"
+            class="validate johanAsciiTextSpeedEdit">
+          <label for="johanAsciiTextSpeedEdit">How fast the ASCII moving?</label>
+        </div>
+
+        <div class="col s12 right-align">
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in johanAsciiTextFlashEdit" id="johanAsciiTextFlashEdit"
+                name="johanAsciiTextFlashEdit" value="true" />
+              <span class="white-text"><small>The ASCII is flashing?</small></span>
+            </label>
+          </p>
+        </div>
+        <!--ASCII text animation-->
+        <!--ASCII text animation-->
+        <!--ASCII text animation-->
+
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <div class="input-field col s12 right-align">
+          <small>Add new frame...</small>
+          <a class="btn-floating btn-large waves-effect waves-light blue btn-small" id="johanAsciiAnimationAddEdit"><i
+              class="material-icons">add</i></a>
+        </div>
+
+        <div class="input-field col s12">
+          <textarea placeholder="If Johan is trying to show something in ASCII animation." id="johanAsciiAnimationEdit"
+            class="materialize-textarea johanAsciiAnimationEdit" name="johanAsciiAnimationEdit"></textarea>
+          <label for="johanAsciiAnimationEdit">Johan's trying to show photo in ASCII animation</label>
+        </div>
+
+        <div id="johanAsciiAnimationNewInputsEdit">
+
+        </div>
+        <!--ASCII text-->
+        <!--ASCII text-->
+        <!--ASCII text-->
+
+        <!--USAGE-->
+        <!--USAGE-->
+        <!--USAGE-->
+        <h5 style="font-size:18px;padding-bottom:20px;">//Johan's performance stats</h5>
+        <div class="input-field col s12 l4">
+          <input placeholder="CPU Usage Percentage..." id="johanCpuUsageEdit" type="number" name="johanCpuUsageEdit"
+            class="validate johanCpuUsageEdit">
+          <label for="johanCpuUsageEdit">CPU Usage for this text output.</label>
+        </div>
+
+        <div class="input-field col s12 l4">
+          <input placeholder="Memory Usage Percentage..." id="johanMemoryUsageEdit" type="number" name="johanMemoryUsageEdit"
+            class="validate johanMemoryUsageEdit">
+          <label for="johanMemoryUsageEdit">Memory Usage for this text output.</label>
+        </div>
+
+        <div class="input-field col s12 l4">
+          <input placeholder="Disk Usage Percentage..." id="johanDiskUsageEdit" type="number" name="johanDiskUsageEdit"
+            class="validate johanDiskUsageEdit">
+          <label for="johanDiskUsageEdit">Disk Usage for this text output.</label>
+        </div>
+        <!--USAGE-->
+        <!--USAGE-->
+        <!--USAGE-->
+
+        <!--Sorting-->
+        <!--Sorting-->
+        <!--Sorting-->
+        <div class="input-field col s12">
+          <select name="johanSortingEdit" class="johanSortingEdit" id="johanSortingEdit">
+            <optgroup label="Insert Formally">
+              <option value="1">Insert to the latest</option>
+              <option value="2">Insert to the beginning</option>
+            </optgroup>
+            <optgroup label="Intersection">
+              <option value="3">Insert after #1</option>
+              <option value="4">Insert after #2</option>
+            </optgroup>
+          </select>
+          <label>Sorting</label>
+        </div>
+        <!--Sorting-->
+        <!--Sorting-->
+        <!--Sorting-->
+
+        <div class="col s12 right-align">
+
+        </div>
+      </div>
+      <div class="modal-footer grey darken-3 white-text">
+        <a href="#!" class="btn red modal-close waves-effect waves-light red">Close</a>
+        <button class="btn waves-effect waves-light blue darken-2 johanUpdate" id="johanUpdate" type="submit"
+        name="johanAdd">Update
+        <i class="material-icons right">send</i>
+      </button>
+      </div>
     </div>
   </div>

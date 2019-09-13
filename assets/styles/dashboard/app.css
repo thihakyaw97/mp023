@@ -142,3 +142,6 @@ input[type="checkbox"].filled-in:checked + label:after{
   background-color: #ffffff !important;
 }
 
+.modal{
+  width:1600px;
+}

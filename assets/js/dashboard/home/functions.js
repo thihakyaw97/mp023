@@ -9,6 +9,12 @@ gettingValuesFromInputs = (inputs) => {
   return array;
 }
 
+tempIdGenerate =()=>{
+id =Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+return id;
+}
+
+
 $(document).on("click","input[type='checkbox']", function () {
   $(this).prop('checked')?$(this).attr('checked', 'checked'):$(this).removeAttr("checked")
 });
