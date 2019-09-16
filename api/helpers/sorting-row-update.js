@@ -41,6 +41,7 @@ module.exports = {
       return exits.success(sort[0].sort);
     } 
     
+    //IF THE CHOICE IS THE 'latest', do thiss
     else if (inputs.sort == "latest") {
       sort = await Script.find().where({
         id: inputs.id
@@ -71,10 +72,24 @@ module.exports = {
         }
         return exits.success(sort);
       }
+    }
+
+    //THE INTERSECTION
+    else if(await Script.find().where({id:inputs.sort})){
+      sorting_from_sort = await Script.find().where({id:inputs.sort});
+
+      sorting_from_id =await Script.find().where({id:inputs.id});
+
+      //IF YOU SELECTED THE SAME SORTING PLACE
+      if(sorting_from_sort[0].sort == sorting_from_id[0].sort){
+        return exits.success(sorting_from_sort[0].sort);
+      }
+      else{
+
+      }
 
       
     }
-
 
   }
 
