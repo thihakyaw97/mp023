@@ -24,17 +24,21 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
+    await sails.helpers.sortingRowDelete(inputs.id);
+ 
+
+
     let id = inputs.id;
-    await Script.destroy({
+    let deleteScript = await Script.destroy({
       _id: id
-    });
+    }).fetch();
     //Socket
     sails.sockets.join(this.req, 'scripts');
     var scripts = await Script.find().sort('sort ASC');
     sails.sockets.broadcast('scripts', 'getAllScripts', scripts);
     // All done.
-    return exits.success();
-
+    return exits.success(deleteScript);
+    
 
   }
 

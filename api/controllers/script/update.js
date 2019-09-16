@@ -106,8 +106,8 @@ module.exports = {
   fn: async function (inputs,exits) {
 
     var sort = await sails.helpers.sortingRowUpdate(inputs.sort,inputs.id);
-    return exits.success(sort);
-    /*
+
+    
     let id = inputs.id;
     
     let updatedScript = await Script.update({
@@ -138,7 +138,7 @@ module.exports = {
       sails.sockets.broadcast('scripts', 'getAllScripts',scripts);
     // All donee
     return exits.success(updatedScript);
-*/
+
 
 
   }

@@ -608,6 +608,7 @@ $(document).on("click", '#deleteJohanModal', function () {
     //Removing loading
     $("#johanListLoading").removeClass("active");
   });
+  $(this).removeData('id');
 });
 //DELETE JOHAN
 //DELETE JOHAN

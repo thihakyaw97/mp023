@@ -74,6 +74,7 @@ module.exports = {
       }
     }
 
+    /*
     //THE INTERSECTION
     else if(await Script.find().where({id:inputs.sort})){
       sorting_from_sort = await Script.find().where({id:inputs.sort});
@@ -90,6 +91,7 @@ module.exports = {
 
       
     }
+    */
 
   }
 

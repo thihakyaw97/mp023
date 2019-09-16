@@ -499,17 +499,22 @@ $(document).on("click", '.deleteScript', function () {
   $("#scriptTextNameDelete").text($(this).data('text'));
   $("#deleteScriptModal").attr("data-id", $(this).data('id'));
 });
+
 $(document).on("click", '#deleteScriptModal', function () {
+
   var id = $(this).data('id');
+  
   $('.modal').modal('close');
   //Add loading
   $("#scriptListLoading").addClass("active");
-  io.socket.delete('/api/v1/script/delete/' + id, (resData) => {
-
+  io.socket.delete('/api/v1/script/delete/' + id, function (resData, jwRes) {
+    console.log(resData);
     //Removing loading
     $("#scriptListLoading").removeClass("active");
 
   });
+  $(this).removeData('id');
+  
 });
 //DELETE SCRIPT
 //DELETE SCRIPT
