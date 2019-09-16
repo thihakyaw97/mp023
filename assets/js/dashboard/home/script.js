@@ -196,6 +196,9 @@ io.socket.on('getAllScripts', function (data) {
 
   $(".scriptList").remove();
   $(".johanResponseList").remove();
+  $(".johanResponseListEdit").remove();
+  $(".scriptSortingList").remove();
+  $(".scriptSortingListEdit").remove();
 
   $.each(data, (index, value) => {
     const editId = tempIdGenerate();
@@ -235,6 +238,7 @@ io.socket.on('getAllScripts', function (data) {
 
 
 
+  //APPENDING JOHAN CREATE AND EDITRESPONSE
 
   $.each(data, (index, value) => {
     $("#johanResponse").append(`
@@ -245,14 +249,37 @@ io.socket.on('getAllScripts', function (data) {
   //INITIALIZING SELECT AGAIN BECAUSE IT KEEP RESETING 
   $('#johanResponse').formSelect();
 
+
   $.each(data, (index, value) => {
     $("#johanResponseEdit").append(`
-  <option class="johanResponseListEdiy" value="` + value.id + `">` + value.scriptText + `</option>
+  <option class="johanResponseListEdit" value="` + value.id + `">` + value.scriptText + `</option>
   `);
 
   });
   //INITIALIZING SELECT AGAIN BECAUSE IT KEEP RESETING 
   $('#johanResponseEdit').formSelect();
+  //APPENDIGN SORTING 
+
+  $.each(data, (index, value) => {
+    $("#scriptSorting").append(`
+    <option class="scriptSortingList" value="` + value.id + `">Insert before #` + value.sort + ` ` + value.scriptText + `</option>
+  `);
+
+  });
+  $('#scriptSorting').formSelect();
+
+  //APPENDIGN SORTING EDIT
+
+  $.each(data, (index, value) => {
+    $("#scriptSortingEdit").append(`
+      <option class="scriptSortingListEdit" value="` + value.id + `">Insert before #` + value.sort + ` ` + value.scriptText + `</option>
+    `);
+
+  });
+  $('#scriptSortingEdit').formSelect();
+
+
+
 
   //Removing loading
   $("#scriptListLoading").removeClass("active");
@@ -272,7 +299,7 @@ $(document).on("click", '#scriptAdd', function () {
   const data = {
     scriptText: $('#scriptText').val(),
     audio: $('#scriptAudio').val(),
-    sort: 1,
+    sort: $('#scriptSorting').val(),
     description: $('#scriptDescription').val(),
     responseText: gettingValuesFromInputs($(".scriptResponseText")),
     responseTextIfFail: gettingValuesFromInputs($(".scriptResponseTextIfFail")),
@@ -293,6 +320,7 @@ $(document).on("click", '#scriptAdd', function () {
   });
 
 });
+
 //CREATE SCRIPT
 //CREATE SCRIPT
 //CREATE SCRIPT
@@ -431,7 +459,7 @@ $(document).on("click", '#scriptUpdate', function () {
   const data = {
     scriptText: $('#scriptTextEdit').val(),
     audio: $('#scriptAudioEdit').val(),
-    sort: 1,
+    sort: $('#scriptSortingEdit').val(),
     description: $('#scriptDescriptionEdit').val(),
     responseText: gettingValuesFromInputs($(".scriptResponseTextEdit")),
     responseTextIfFail: gettingValuesFromInputs($(".scriptResponseTextIfFailEdit")),
@@ -451,6 +479,7 @@ $(document).on("click", '#scriptUpdate', function () {
   $("#scriptListLoading").addClass("active");
 
   io.socket.put('/api/v1/script/update/' + $(this).data('id'), data, function (resData, jwRes) {
+    console.log(resData);
     //Removing loading
     $("#scriptListLoading").removeClass("active");
   });

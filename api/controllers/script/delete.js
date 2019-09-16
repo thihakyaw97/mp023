@@ -30,7 +30,7 @@ module.exports = {
     });
     //Socket
     sails.sockets.join(this.req, 'scripts');
-    var scripts = await Script.find();
+    var scripts = await Script.find().sort('sort ASC');
     sails.sockets.broadcast('scripts', 'getAllScripts', scripts);
     // All done.
     return exits.success();

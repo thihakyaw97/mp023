@@ -19,7 +19,7 @@ module.exports = {
       description: 'This is the script to make johan respone sometimes.'
     },
     sort: {
-      type: 'number',
+      type: 'string',
       required: true,
       description: 'Sorting the script to show in notepad. rather than managing database asc and dsc, I prefer customizable sorting the scripts.'
     },
@@ -105,13 +105,16 @@ module.exports = {
 
   fn: async function (inputs,exits) {
 
+    var sort = await sails.helpers.sortingRowUpdate(inputs.sort,inputs.id);
+
     let id = inputs.id;
+    
     let updatedScript = await Script.update({
         _id: id
       })
       .set({
         scriptText:inputs.scriptText,
-        sort:inputs.sort,
+        sort:sort,
         audio:inputs.audio,
         description:inputs.description,
         responseText:inputs.responseText,
@@ -129,7 +132,7 @@ module.exports = {
 
       sails.sockets.join(this.req, 'scripts');
 
-      var scripts = await Script.find();
+      var scripts = await Script.find().sort('sort ASC');
   
       sails.sockets.broadcast('scripts', 'getAllScripts',scripts);
     // All donee
