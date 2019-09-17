@@ -107,11 +107,10 @@ module.exports = {
 
     var sort = await sails.helpers.sortingRowUpdate(inputs.sort,inputs.id);
 
-    
-    let id = inputs.id;
+    //return exits.success(sort);
     
     let updatedScript = await Script.update({
-        _id: id
+        _id: inputs.id
       })
       .set({
         scriptText:inputs.scriptText,

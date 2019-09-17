@@ -333,15 +333,26 @@ $(document).on("click", '#scriptAdd', function () {
 //EDIT SCRIPT
 $(document).on("click", '.editScript', function () {
 
+
+  $('#scriptResponseTextFlashEdit').prop('checked', false);
+  $('#scriptAsciiTextFlashEdit').prop('checked', false);
+
+
   $(".scriptResponseTextRemove").remove();
   $(".scriptResponseTextIfFailRemove").remove();
   $(".scriptAsciiTextRemove").remove();
   $(".scriptAsciiAnimationRemove").remove();
 
-  $('#scriptTextEdit').attr('value', $(this).data('scriptText'));
-  $('#scriptDescriptionEdit').attr('value', $(this).data('description'));
+  $(this).data('responseTextFlash') == true ? $('#scriptResponseTextFlashEdit').prop('checked', true) : 
+  $('#scriptResponseTextFlashEdit').prop('checked', false);
 
-  $('#scriptResponseTextEdit').attr('value', $(this).data('responseText')[0]);
+  $(this).data('asciiTextFlash') == true ? $('#scriptAsciiTextFlashEdit').prop('checked', true) : 
+  $('#scriptAsciiTextFlashEdit').prop('checked',false);
+
+  $('#scriptTextEdit').val($(this).data('scriptText'));
+  $('#scriptDescriptionEdit').val($(this).data('description'));
+
+  $('#scriptResponseTextEdit').val($(this).data('responseText')[0]);
 
 
   if ($(this).data('responseText').length > 1) {
@@ -363,7 +374,7 @@ $(document).on("click", '.editScript', function () {
     }
   }
 
-  $('#scriptResponseTextIfFailEdit').attr('value', $(this).data('responseTextIfFail')[0]);
+  $('#scriptResponseTextIfFailEdit').val($(this).data('responseTextIfFail')[0]);
 
 
   if ($(this).data('responseTextIfFail').length > 1) {
@@ -385,12 +396,9 @@ $(document).on("click", '.editScript', function () {
     }
   }
 
-  $('#scriptResponseTextIfFailEdit').attr('value', $(this).data('responseTextIfFail'));
-  $('#scriptResponseTextDurationEdit').attr('value', $(this).data('responseTextDuration'));
-  $('#scriptResponseTextSpeedEdit').attr('value', $(this).data('responseTextSpeed'));
-
-  $(this).data('responseTextFlash') == true ? $('#scriptResponseTextFlashEdit').attr('checked', 'checked') : null;
-
+  $('#scriptResponseTextIfFailEdit').val($(this).data('responseTextIfFail'));
+  $('#scriptResponseTextDurationEdit').val($(this).data('responseTextDuration'));
+  $('#scriptResponseTextSpeedEdit').val($(this).data('responseTextSpeed'));
 
   $('#scriptAsciiTextEdit').val($(this).data('asciiText')[0]);
 
@@ -416,7 +424,7 @@ $(document).on("click", '.editScript', function () {
   $('#scriptAsciiTextDurationEdit').attr('value', $(this).data('asciiTextDuration'));
   $('#scriptAsciiTextSpeedEdit').attr('value', $(this).data('asciiTextSpeed'));
 
-  $(this).data('asciiTextFlash') == true ? $('#scriptAsciiTextFlashEdit').attr('checked', 'checked') : null;
+
 
 
   $('#scriptAsciiAnimationEdit').val($(this).data('asciiAnimation')[0]);
@@ -440,7 +448,7 @@ $(document).on("click", '.editScript', function () {
     }
   }
 
-  $('#scriptSpecialActionEdit').attr('value', $(this).data('specialAction'));
+  $('#scriptSpecialActionEdit').val($(this).data('specialAction'));
 
 
   $("#scriptUpdate").data("id", $(this).data('id'));
@@ -482,10 +490,13 @@ $(document).on("click", '#scriptUpdate', function () {
     console.log(resData);
     //Removing loading
     $("#scriptListLoading").removeClass("active");
+    $(this).removeData('id');
+
   });
 
 
 });
+
 
 //Update  SCRIPT
 //Update  SCRIPT
@@ -511,9 +522,9 @@ $(document).on("click", '#deleteScriptModal', function () {
     console.log(resData);
     //Removing loading
     $("#scriptListLoading").removeClass("active");
-
+    $(this).removeData('id');
   });
-  $(this).removeData('id');
+  
   
 });
 //DELETE SCRIPT

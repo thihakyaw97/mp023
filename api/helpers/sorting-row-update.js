@@ -39,8 +39,8 @@ module.exports = {
         id: inputs.id
       });
       return exits.success(sort[0].sort);
-    } 
-    
+    }
+
     //IF THE CHOICE IS THE 'latest', do thiss
     else if (inputs.sort == "latest") {
       sort = await Script.find().where({
@@ -74,24 +74,74 @@ module.exports = {
       }
     }
 
-    /*
-    //THE INTERSECTION
-    else if(await Script.find().where({id:inputs.sort})){
-      sorting_from_sort = await Script.find().where({id:inputs.sort});
 
-      sorting_from_id =await Script.find().where({id:inputs.id});
+    //THE INTERSECTION
+    else if (await Script.find().where({
+        id: inputs.sort
+      })) {
+
+      //OUTPUTING COMPARE VALUES FROM SORT AND SELECTED ID 
+      sorting_from_sort = await Script.find().where({
+        id: inputs.sort
+      });
+      sorting_from_id = await Script.find().where({
+        id: inputs.id
+      });
 
       //IF YOU SELECTED THE SAME SORTING PLACE
-      if(sorting_from_sort[0].sort == sorting_from_id[0].sort){
+      if (sorting_from_sort[0].sort == sorting_from_id[0].sort) {
+        return exits.success(sorting_from_id[0].sort);
+      }
+      //IF YOU SELECTED THE Greater SORTING PLACE
+      else if (sorting_from_id[0].sort > sorting_from_sort[0].sort) {
+        //return exits.success('greater');
+        //FINDING THE SORTING VALUE THAT IS GREATER THAN CURRENT VALUE
+        sorting = await Script.find().where({
+          sort: {
+            '>=':sorting_from_sort[0].sort,
+            '<': sorting_from_id[0].sort,
+          }
+        }).sort('sort ASC');
+        
+        //INCREASING +1 for intersection
+        for (i = 0; i < sorting.length; i++) {
+          sort_increase = sorting[i].sort + 1;
+          await Script.update({
+            _id: sorting[i].id
+          }).set({
+            sort: sort_increase
+          })
+        }
+        
         return exits.success(sorting_from_sort[0].sort);
-      }
-      else{
 
       }
+      //IF YOU SELECTED THE Lesser SORTING PLACE
+      else if (sorting_from_id[0].sort < sorting_from_sort[0].sort) {
+        //return exits.success('lesser');
+        sorting = await Script.find().where({
+          sort: {
+            '>=': sorting_from_id[0].sort,
+            '<':sorting_from_sort[0].sort
+          }
+        }).sort('sort ASC');
+        
+        //INCREASING -1 for intersection
+        for (i = 0; i < sorting.length; i++) {
+          sort_increase = sorting[i].sort - 1;
+          await Script.update({
+            _id: sorting[i].id
+          }).set({
+            sort: sort_increase
+          })
+        }
+        
+        sorting_from_sort = sorting_from_sort[0].sort-1;
+        return exits.success(sorting_from_sort);
+      }
 
-      
     }
-    */
+
 
   }
 

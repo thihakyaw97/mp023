@@ -101,6 +101,7 @@ module.exports = {
 
   fn: async function (inputs,exits ) {
 
+    
     var sort = await sails.helpers.sortingRow(inputs.sort);
 
     
