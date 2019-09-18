@@ -315,8 +315,15 @@ $(document).on("click", '#scriptAdd', function () {
   };
 
 
+  $('#scriptAdd').prop('disabled', true);
+  $('.editScript').addClass('hide');
+  $('.deleteScript').addClass('hide');
+
   io.socket.post('/api/v1/script/create', data, function (resData, jwRes) {
     console.log(resData); // => 200
+    $('#scriptAdd').prop('disabled', false);
+    $('.editScript').removeClass('hide');
+    $('.deleteScript').removeClass('hide');
   });
 
 });
@@ -343,11 +350,11 @@ $(document).on("click", '.editScript', function () {
   $(".scriptAsciiTextRemove").remove();
   $(".scriptAsciiAnimationRemove").remove();
 
-  $(this).data('responseTextFlash') == true ? $('#scriptResponseTextFlashEdit').prop('checked', true) : 
-  $('#scriptResponseTextFlashEdit').prop('checked', false);
+  $(this).data('responseTextFlash') == true ? $('#scriptResponseTextFlashEdit').prop('checked', true) :
+    $('#scriptResponseTextFlashEdit').prop('checked', false);
 
-  $(this).data('asciiTextFlash') == true ? $('#scriptAsciiTextFlashEdit').prop('checked', true) : 
-  $('#scriptAsciiTextFlashEdit').prop('checked',false);
+  $(this).data('asciiTextFlash') == true ? $('#scriptAsciiTextFlashEdit').prop('checked', true) :
+    $('#scriptAsciiTextFlashEdit').prop('checked', false);
 
   $('#scriptTextEdit').val($(this).data('scriptText'));
   $('#scriptDescriptionEdit').val($(this).data('description'));
@@ -486,8 +493,17 @@ $(document).on("click", '#scriptUpdate', function () {
   //Add loading
   $("#scriptListLoading").addClass("active");
 
+  //HIDING BUTTONS
+  $('#scriptAdd').prop('disabled', true);
+  $('.editScript').addClass('hide');
+  $('.deleteScript').addClass('hide');
+
   io.socket.put('/api/v1/script/update/' + $(this).data('id'), data, function (resData, jwRes) {
     console.log(resData);
+    //REVELING BUTTONS
+    $('#scriptAdd').prop('disabled', false);
+    $('.editScript').removeClass('hide');
+    $('.deleteScript').removeClass('hide');
     //Removing loading
     $("#scriptListLoading").removeClass("active");
     $(this).removeData('id');
@@ -514,18 +530,26 @@ $(document).on("click", '.deleteScript', function () {
 $(document).on("click", '#deleteScriptModal', function () {
 
   var id = $(this).data('id');
-  
+
   $('.modal').modal('close');
   //Add loading
   $("#scriptListLoading").addClass("active");
+  //HIDING BUTTONS
+  $('#scriptAdd').prop('disabled', true);
+  $('.editScript').addClass('hide');
+  $('.deleteScript').addClass('hide');
   io.socket.delete('/api/v1/script/delete/' + id, function (resData, jwRes) {
     console.log(resData);
+    //REVELING BUTTONS
+    $('#scriptAdd').prop('disabled', false);
+    $('.editScript').removeClass('hide');
+    $('.deleteScript').removeClass('hide');
     //Removing loading
     $("#scriptListLoading").removeClass("active");
-    $(this).removeData('id');
+
   });
-  
-  
+  $(this).removeData('id');
+
 });
 //DELETE SCRIPT
 //DELETE SCRIPT

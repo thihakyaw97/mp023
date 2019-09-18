@@ -28,7 +28,7 @@ module.exports = {
     sails.sockets.join(this.req, 'johan');
 
     
-    var johan = await Johan.find();
+    var johan = await Johan.find().sort('sort ASC');;
 
     sails.sockets.broadcast('johan', 'getAllJohan',johan);
 

@@ -284,6 +284,8 @@ $(document).on("click", '#johanAsciiAnimationAddEdit', function () {
 io.socket.on('getAllJohan', function (data) {
 
   $(".johanList").remove();
+  $(".johanSortingList").remove();
+  $(".johanSortingListEdit").remove();
 
   $.each(data, (index, value) => {
 
@@ -295,6 +297,7 @@ io.socket.on('getAllJohan', function (data) {
     <div class="col s12 johanList">
       <div class="card grey darken-3">
         <div class="card-content white-text">
+        <p>#` + value.sort + `</p>
           <p>` + value.text + `</p>
         </div>
         <div class="card-action right-align">
@@ -333,8 +336,27 @@ io.socket.on('getAllJohan', function (data) {
     $('.' + deleteId).data('text', value.text);
     $('.' + deleteId).data('sort', value.sort);
 
-  });
 
+  });
+  //APPENDIGN SORTING 
+
+  $.each(data, (index, value) => {
+    $("#johanSorting").append(`
+    <option class="johanSortingList" value="` + value.id + `">Insert before #` + value.sort + ` ` + value.text + `</option>
+  `);
+
+  });
+  $('#johanSorting').formSelect();
+
+  //APPENDIGN SORTING EDIT
+
+  $.each(data, (index, value) => {
+    $("#johanSortingEdit").append(`
+      <option class="johanSortingListEdit" value="` + value.id + `">Insert before #` + value.sort + ` ` + value.text + `</option>
+    `);
+
+  });
+  $('#johanSortingEdit').formSelect();
 
   //Removing loading
   $("#johanListLoading").removeClass("active");
@@ -350,7 +372,7 @@ $(document).on("click", '#johanAdd', function () {
   const data = {
     text: gettingValuesFromInputs($(".johanText")),
     audio: $('#johanAudio').val(),
-    sort: 1,
+    sort: $('#johanSorting').val(),
     audioPlayTiming: $('#johanAudioPlayTiming').prop("checked") ? true : false,
     textDuration: $('#johanTextDuration').val(),
     textSpeed: $('#johanTextSpeed').val(),
@@ -388,6 +410,11 @@ $(document).on("click", '#johanAdd', function () {
 //EDIT JOHAN
 $(document).on("click", '.editJohan', function () {
 
+  $('#johanAudioTimingEdit').prop('checked', false);
+  $('#johanTextFlashEdit').prop('checked', false);
+  $('#johanResponseTextFlashEdit').prop('checked', false);
+  $('#johanAsciiTextFlashEdit').prop('checked', false);
+
   $(".johanTextRemove").remove();
   $(".johanResponseTextRemove").remove();
   $(".johanResponseTextIfFailRemove").remove();
@@ -396,32 +423,40 @@ $(document).on("click", '.editJohan', function () {
   $(".johanAsciiAnimationRemove").remove();
 
 
-  $('#johanTextEdit').attr('value', $(this).data('text')[0]);
-  $('#johanResponseTextEdit').attr('value', $(this).data('responseText')[0]);
-  $('#johanResponseTextIfFailEdit').attr('value', $(this).data('responseTextIfFail')[0]);
-  $('#johanResponseTextIfYouQuitEdit').attr('value', $(this).data('responseTextIfYouQuit')[0]);
+  $('#johanTextEdit').val($(this).data('text')[0]);
+  $('#johanResponseTextEdit').val($(this).data('responseText')[0]);
+  $('#johanResponseTextIfFailEdit').val($(this).data('responseTextIfFail')[0]);
+  $('#johanResponseTextIfYouQuitEdit').val($(this).data('responseTextIfYouQuit')[0]);
   $('#johanAsciiTextEdit').val($(this).data('asciiText')[0]);
   $('#johanAsciiAnimationEdit').val($(this).data('asciiAnimation')[0]);
 
 
-  $('#johanTextDurationEdit').attr('value', $(this).data('textDuration'));
-  $('#johanTextSpeedEdit').attr('value', $(this).data('textSpeed'));
-  $('#johanResponseTextDurationEdit').attr('value', $(this).data('responseTextDuration'));
-  $('#johanResponseTextSpeedEdit').attr('value', $(this).data('responseTextSpeed'));
-  $('#johanAsciiTextDurationEdit').attr('value', $(this).data('asciiTextDuration'));
-  $('#johanAsciiTextSpeedEdit').attr('value', $(this).data('asciiTextSpeed'));
+  $('#johanTextDurationEdit').val($(this).data('textDuration'));
+  $('#johanTextSpeedEdit').val($(this).data('textSpeed'));
+  $('#johanResponseTextDurationEdit').val($(this).data('responseTextDuration'));
+  $('#johanResponseTextSpeedEdit').val($(this).data('responseTextSpeed'));
+  $('#johanAsciiTextDurationEdit').val($(this).data('asciiTextDuration'));
+  $('#johanAsciiTextSpeedEdit').val($(this).data('asciiTextSpeed'));
 
-  $('#johanCpuUsageEdit').attr('value', $(this).data('cpuUsage'));
-  $('#johanMemoryUsageEdit').attr('value', $(this).data('memoryUsage'));
-  $('#johanDiskUsageEdit').attr('value', $(this).data('diskUsage'));
+  $('#johanCpuUsageEdit').val($(this).data('cpuUsage'));
+  $('#johanMemoryUsageEdit').val($(this).data('memoryUsage'));
+  $('#johanDiskUsageEdit').val($(this).data('diskUsage'));
 
 
-  $(this).data('response') == true ? $('#johanResponseEdit').val($(this).data('response')) : null;
+  $("#johanResponseEdit").val($(this).data('response'));
 
-  $(this).data('audioPlayTiming') == true ? $('#johanAudioTimingEdit').attr('checked', 'checked') : null;
-  $(this).data('textFlash') == true ? $('#johanTextFlashEdit').attr('checked', 'checked') : null;
-  $(this).data('responseTextFlash') == true ? $('#johanResponseTextFlashEdit').attr('checked', 'checked') : null;
-  $(this).data('asciiTextFlash') == true ? $('#johanAsciiTextFlashEdit').attr('checked', 'checked') : null;
+  $('#johanResponseEdit').formSelect()
+
+
+  $(this).data('audioPlayTiming') == true ? $('#johanAudioTimingEdit').prop('checked', true) :
+    $('#johanAudioTimingEdit').prop('checked', false);
+  $(this).data('textFlash') == true ? $('#johanTextFlashEdit').prop('checked', true) :
+    $('#johanTextFlashEdit').prop('checked', false);
+  $(this).data('responseTextFlash') == true ? $('#johanResponseTextFlashEdit').prop('checked', true) :
+    $('#johanResponseTextFlashEdit').prop('checked', false);
+  $(this).data('asciiTextFlash') == true ? $('#johanAsciiTextFlashEdit').prop('checked', true) :
+    $('#johanAsciiTextFlashEdit').prop('checked', false);
+
 
   if ($(this).data('text').length > 1) {
     johanTextEdit = $(this).data('text');
@@ -548,7 +583,7 @@ $(document).on("click", '#johanUpdate', function () {
   const data = {
     text: gettingValuesFromInputs($(".johanTextEdit")),
     audio: $('#johanAudioEdit').val(),
-    sort: 1,
+    sort: $('#johanSortingEdit').val(),
     audioPlayTiming: $('#johanAudioPlayTimingEdit').prop("checked") ? true : false,
     textDuration: $('#johanTextDurationEdit').val(),
     textSpeed: $('#johanTextSpeedEdit').val(),
@@ -600,11 +635,11 @@ $(document).on("click", '.deleteJohan', function () {
   $("#deleteJohanModal").attr("data-id", $(this).data('id'));
 });
 $(document).on("click", '#deleteJohanModal', function () {
-  var id = $(this).data('id');
+  console.log($(this).data('id'));
   $('.modal').modal('close');
   //Add loading
   $("#johanListLoading").addClass("active");
-  io.socket.delete('/api/v1/johan/delete/' + id, (resData) => {
+  io.socket.delete('/api/v1/johan/delete/' + $(this).data('id'), (resData) => {
     //Removing loading
     $("#johanListLoading").removeClass("active");
   });

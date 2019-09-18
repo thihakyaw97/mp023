@@ -1,14 +1,13 @@
 module.exports = {
 
 
-  friendlyName: 'Sorting row delete',
+  friendlyName: 'Johan sorting row delete',
 
 
   description: '',
 
 
   inputs: {
-
     id: {
       type: 'string',
       required: true,
@@ -25,14 +24,14 @@ module.exports = {
   },
 
 
-  fn: async function (inputs, exits) {
-    sort = await Script.find().where({
+  fn: async function (inputs,exits) {
+    sort = await Johan.find().where({
       id: inputs.id
     });
 
 
     //FINDING THE SORTING VALUE THAT IS GREATER THAN CURRENT VALUE
-    sorting_largest = await Script.find().where({
+    sorting_largest = await Johan.find().where({
       sort: {
         '>': sort[0].sort
       }
@@ -51,7 +50,7 @@ module.exports = {
         sort = sorting_largest[i].sort;
         //DECREASING EACH VALUE TO BACKWARD THE UPCOMING GREATEST SORTING VALUE
         sort_decrease = sorting_largest[i].sort - 1;
-        await Script.update({
+        await Johan.update({
           _id: sorting_largest[i].id
         }).set({
           sort: sort_decrease
@@ -63,3 +62,4 @@ module.exports = {
 
 
 };
+

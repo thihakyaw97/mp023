@@ -24,13 +24,14 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
-    let id = inputs.id;
+    await sails.helpers.johanSortingRowDelete(inputs.id);
+
     await Johan.destroy({
-      _id: id
+      _id: inputs.id
     });
     //Socket
     sails.sockets.join(this.req, 'johan');
-    var johan = await Johan.find();
+    var johan = await Johan.find().sort('sort ASC');;
     sails.sockets.broadcast('johan', 'getAllJohan', johan);
     // All done.
     return exits.success();

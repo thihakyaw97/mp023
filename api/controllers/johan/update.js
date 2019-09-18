@@ -21,7 +21,7 @@ module.exports = {
     },
 
     sort: {
-      type: 'number',
+      type: 'string',
       required: true,
       description: 'Sorting the texts. rather than managing database asc and dsc, I prefer customizable sorting.'
     },
@@ -143,13 +143,13 @@ module.exports = {
 
 
   fn: async function (inputs,exits) {
-    let id = inputs.id;
+    var sort = await sails.helpers.johanSortingRowUpdate(inputs.sort,inputs.id);
     let updatedJohan = await Johan.update({
-        _id: id
+        _id: inputs.id
       })
       .set({
         text:inputs.text,
-        sort:inputs.sort,
+        sort:sort,
         audio:inputs.audio,
         audioPlayTiming:inputs.audioPlayTiming,
         textDuration:inputs.textDuration,
@@ -174,7 +174,7 @@ module.exports = {
 
       sails.sockets.join(this.req, 'johan');
 
-      var johan = await Johan.find();
+      var johan = await Johan.find().sort('sort ASC');;
   
       sails.sockets.broadcast('johan', 'getAllJohan',johan);
     // All donee

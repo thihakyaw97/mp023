@@ -50,7 +50,7 @@
         <div class="col s12 right-align">
           <p>
             <label>
-              <input type="checkbox" class="filled-in johanAudioTiming" id="johanAudioTiming" name="johanAudioTiming"
+              <input type="checkbox" class="filled-in johanAudioPlayTiming" id="johanAudioPlayTiming" name="johanAudioPlayTiming"
                 value="true" />
               <span class="white-text"><small>he says that while saying in text</small></span>
             </label>
@@ -94,8 +94,9 @@
         <!--Player Response-->
 
 
-        <div class="input-field col s12 l6">
+        <div class="input-field col s12">
           <select name="johanResponse" class="johanResponse" id="johanResponse">
+            <option value="noresponse">No Response</option>
           </select>
           <label>If Johan needs player's response, what would it be?</label>
         </div>
@@ -297,15 +298,8 @@
         <!--Sorting-->
         <!--Sorting-->
         <div class="input-field col s12">
-          <select name="johanSorting" class="johanSorting" id="johanSorting">
-            <optgroup label="Insert Formally">
-              <option value="1">Insert to the latest</option>
-              <option value="2">Insert to the beginning</option>
-            </optgroup>
-            <optgroup label="Intersection">
-              <option value="3">Insert after #1</option>
-              <option value="4">Insert after #2</option>
-            </optgroup>
+          <select name="johanSorting" class="johanSorting" id="johanSorting" name="johanSorting">
+            <option value="latest">Insert to the latest</option>
           </select>
           <label>Sorting</label>
         </div>
